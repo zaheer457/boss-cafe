@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Reviews | Culina Luxe</title>
+<meta content="Read customer reviews and share your experience with Culina Luxe kitchen appliances." name="description"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        :root {
+            --wine: #4b101c;
+            --wine-dark: #25070e;
+            --wine-light: #702a39;
+            --gold: #e1bd78;
+            --gold-light: #f7e6be;
+            --ivory: #faf6ef;
+            --white: #ffffff;
+            --text: #30252a;
+            --muted: #716166;
+            --border: #e7d9c6;
+            --shadow: 0 12px 35px rgba(43, 9, 17, .09);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--ivory);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body, body * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Announcement bar */
+        .announcement-bar {
+            padding: 10px 15px;
+            background: var(--wine-dark) !important;
+            color: var(--gold-light) !important;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        nav.lux-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1050;
+            background: var(--wine) !important;
+            border-bottom: 1px solid rgba(225, 189, 120, .6);
+            box-shadow: 0 5px 22px rgba(37, 7, 14, .2);
+        }
+
+        .lux-navbar .navbar-brand,
+        .lux-navbar .navbar-brand:hover,
+        .lux-navbar .navbar-brand:focus {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-light) !important;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            white-space: nowrap;
+        }
+
+        .lux-navbar .navbar-brand img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .lux-navbar .navbar-nav .nav-link,
+        .lux-navbar .navbar-nav .nav-link:visited {
+            display: block;
+            margin: 0 2px;
+            padding: 12px 9px !important;
+            color: #fff8f1 !important;
+            font-size: 12px;
+            font-weight: 650;
+            opacity: 1 !important;
+            transition: color .2s ease, background .2s ease;
+        }
+
+        .lux-navbar .navbar-nav .nav-link:hover,
+        .lux-navbar .navbar-nav .nav-link:focus,
+        .lux-navbar .navbar-nav .nav-link.active {
+            color: var(--gold-light) !important;
+        }
+
+        .lux-navbar .navbar-nav .nav-link.active {
+            text-decoration: underline;
+            text-decoration-color: var(--gold);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 7px;
+        }
+
+        .lux-navbar .navbar-toggler {
+            padding: 7px 10px;
+            border: 1px solid var(--gold) !important;
+            border-radius: 8px;
+            background: transparent !important;
+        }
+
+        .lux-navbar .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(225, 189, 120, .25) !important;
+        }
+
+        .lux-navbar .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-search .form-control {
+            width: 145px;
+            min-width: 0;
+            min-height: 36px;
+            padding: 7px 12px;
+            border: 1px solid rgba(247, 230, 190, .6) !important;
+            border-radius: 22px;
+            background: #5b202d !important;
+            color: #ffffff !important;
+            font-size: 12px;
+            box-shadow: none !important;
+        }
+
+        .nav-search .form-control::placeholder {
+            color: #f0dfe0 !important;
+            opacity: 1;
+        }
+
+        .nav-search .form-control:focus {
+            border-color: var(--gold-light) !important;
+            box-shadow: 0 0 0 3px rgba(225, 189, 120, .2) !important;
+        }
+
+        .nav-search .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 36px;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border: 1px solid var(--gold) !important;
+            border-radius: 50%;
+            background: transparent !important;
+            color: var(--gold-light) !important;
+        }
+
+        .nav-search .btn:hover {
+            background: var(--gold) !important;
+            color: var(--wine-dark) !important;
+        }
+
+        /* Hero */
+        .reviews-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 82px 20px 88px;
+            background:
+                radial-gradient(ellipse at 15% 15%, rgba(225, 189, 120, .18), transparent 35%),
+                radial-gradient(ellipse at 85% 90%, rgba(112, 42, 57, .7), transparent 40%),
+                linear-gradient(135deg, #20060c 0%, #40101c 50%, #521827 100%) !important;
+            color: #ffffff !important;
+            text-align: center;
+        }
+
+        .reviews-hero::before,
+        .reviews-hero::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            border: 1px solid rgba(247, 230, 190, .22);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .reviews-hero::before {
+            top: -110px;
+            left: -65px;
+            width: 250px;
+            height: 250px;
+        }
+
+        .reviews-hero::after {
+            right: -100px;
+            bottom: -150px;
+            width: 340px;
+            height: 340px;
+        }
+
+        .reviews-hero .eyebrow,
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: #a16e26;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            line-height: 1.8;
+            text-transform: uppercase;
+        }
+
+        .reviews-hero .eyebrow {
+            color: #f7d994 !important;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+        }
+
+        .reviews-hero h1 {
+            margin: 0 auto 18px;
+            color: #ffffff !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5vw, 59px);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: .1px;
+            opacity: 1 !important;
+            text-shadow: 0 3px 14px rgba(0, 0, 0, .35);
+        }
+
+        .reviews-hero h1 span {
+            display: inline-block;
+            color: #f7d994 !important;
+            font-style: italic;
+            font-weight: 700;
+            opacity: 1 !important;
+        }
+
+        .reviews-hero .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            margin: 23px auto;
+            color: #f7d994 !important;
+        }
+
+        .reviews-hero .gold-divider::before,
+        .reviews-hero .gold-divider::after {
+            width: 45px;
+            height: 2px;
+            background: #e1bd78;
+            content: "";
+        }
+
+        .reviews-hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #fff5ed !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.95;
+            opacity: 1 !important;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+        }
+
+        /* General sections */
+        .section-padding {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            margin: 0 0 12px;
+            color: var(--wine) !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 4vw, 42px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            max-width: 640px;
+            margin: 0 auto;
+            color: #716166 !important;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* Feedback */
+        .feedback-section {
+            background: var(--ivory) !important;
+        }
+
+        .feedback-card {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: #ffffff !important;
+            box-shadow: var(--shadow);
+        }
+
+        .feedback-intro {
+            padding: 35px 30px;
+            background:
+                radial-gradient(circle at top right, rgba(225, 189, 120, .17), transparent 42%),
+                linear-gradient(145deg, #25070e, #4b101c) !important;
+            color: #ffffff !important;
+        }
+
+        .feedback-intro .eyebrow {
+            color: #f7d994 !important;
+        }
+
+        .feedback-intro h2 {
+            margin-bottom: 12px;
+            color: var(--gold-light) !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 29px;
+            line-height: 1.4;
+        }
+
+        .feedback-intro p {
+            margin: 0;
+            color: #fff0ef !important;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .feedback-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+            color: #fff0ce !important;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .feedback-benefit i {
+            flex: 0 0 20px;
+            color: var(--gold) !important;
+            font-size: 18px;
+        }
+
+        .feedback-form-wrap {
+            padding: 35px;
+            background: #ffffff !important;
+        }
+
+        .feedback-form-wrap label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--wine) !important;
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .feedback-form-wrap .form-control,
+        .feedback-form-wrap .form-select {
+            width: 100%;
+            min-height: 47px;
+            border: 1px solid #dfd2c5 !important;
+            border-radius: 9px;
+            background-color: #fffdf9 !important;
+            color: #30252a !important;
+            font-size: 14px;
+            box-shadow: none;
+        }
+
+        .feedback-form-wrap .form-control::placeholder {
+            color: #8b7e80 !important;
+            opacity: 1;
+        }
+
+        .feedback-form-wrap textarea.form-control {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .feedback-form-wrap .form-control:focus,
+        .feedback-form-wrap .form-select:focus {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 0 3px rgba(225, 189, 120, .2) !important;
+        }
+
+        .btn-lux {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 47px;
+            padding: 12px 25px;
+            border: 1px solid var(--wine) !important;
+            border-radius: 9px;
+            background: var(--wine) !important;
+            color: #ffffff !important;
+            font-size: 13px;
+            font-weight: 750;
+            transition: .25s ease;
+        }
+
+        .btn-lux:hover {
+            transform: translateY(-2px);
+            border-color: var(--wine-dark) !important;
+            background: var(--wine-dark) !important;
+            color: var(--gold-light) !important;
+            box-shadow: 0 7px 18px rgba(43, 9, 17, .16);
+        }
+
+        .rating-stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .rating-stars input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .rating-stars label {
+            margin: 0;
+            color: #d8d1c9 !important;
+            cursor: pointer;
+            font-size: 28px;
+            transition: color .2s ease;
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label,
+        .rating-stars input:checked ~ label {
+            color: #c49a43 !important;
+        }
+
+        .rating-stars input:focus-visible + label {
+            outline: 2px solid var(--wine);
+            outline-offset: 4px;
+        }
+
+        /* Values */
+        .values-section {
+            padding: 65px 0;
+            background: #f0e6d9 !important;
+        }
+
+        .value-card {
+            height: 100%;
+            padding: 28px 22px;
+            border: 1px solid #e0cfb8;
+            border-radius: 14px;
+            background: #fffdf9 !important;
+            text-align: center;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .value-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            background: var(--wine) !important;
+            color: var(--gold-light) !important;
+            font-size: 21px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 10px;
+            color: var(--wine) !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            margin: 0;
+            color: #716166 !important;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* Reviews slider */
+        .customer-reviews {
+            overflow: hidden;
+            background: var(--ivory) !important;
+        }
+
+        .review-slider {
+            position: relative;
+            max-width: 850px;
+            margin: 40px auto 0;
+            padding: 0 60px;
+        }
+
+        .review-viewport {
+            overflow: hidden;
+            border-radius: 18px;
+            touch-action: pan-y;
+        }
+
+        .review-track {
+            display: flex;
+            align-items: stretch;
+            transition: transform .55s ease-in-out;
+            will-change: transform;
+        }
+
+        .review-slide {
+            flex: 0 0 100%;
+            min-width: 0;
+            padding: 12px;
+        }
+
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            min-height: 360px;
+            padding: 35px 30px;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: #ffffff !important;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .review-quote-icon {
+            margin-bottom: 15px;
+            color: #bd9854 !important;
+            font-size: 29px;
+        }
+
+        .reviewer-image {
+            width: 76px;
+            height: 76px;
+            margin-bottom: 15px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            background: #f4e9d8;
+            object-fit: cover;
+        }
+
+        .review-stars {
+            margin-bottom: 15px;
+            color: #bd8b2e !important;
+            font-size: 15px;
+            letter-spacing: 3px;
+        }
+
+        .review-text {
+            max-width: 550px;
+            margin-bottom: 22px;
+            color: #514449 !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.9;
+        }
+
+        .reviewer-name {
+            margin: auto 0 5px;
+            color: var(--wine) !important;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .reviewer-label {
+            color: #8b7779 !important;
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            transform: translateY(-50%);
+            border: 1px solid var(--gold) !important;
+            border-radius: 50%;
+            background: var(--wine) !important;
+            color: var(--gold-light) !important;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .slider-arrow:hover {
+            background: var(--wine-dark) !important;
+            box-shadow: 0 5px 15px rgba(43, 9, 17, .2);
+        }
+
+        .slider-prev {
+            left: 0;
+        }
+
+        .slider-next {
+            right: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: none;
+            border-radius: 8px;
+            background: #d6c6b3;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .slider-dot.active {
+            width: 24px;
+            background: var(--wine);
+        }
+
+        .slider-dot:focus-visible,
+        .slider-arrow:focus-visible {
+            outline: 3px solid #b48a42;
+            outline-offset: 3px;
+        }
+
+        .review-counter {
+            margin-top: 12px;
+            color: #716166 !important;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer.lux-footer {
+            padding: 55px 0 0;
+            background: var(--wine-dark) !important;
+            color: #f0e5e5 !important;
+        }
+
+        .footer-brand {
+            margin-bottom: 15px;
+            color: var(--gold-light) !important;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .footer-description {
+            max-width: 330px;
+            color: #e3d0d3 !important;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .lux-footer h3 {
+            margin-bottom: 19px;
+            color: var(--gold-light) !important;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lux-footer .footer-links a,
+        .lux-footer .footer-links a:visited,
+        .footer-contact {
+            color: #f0e5e5 !important;
+            font-size: 13px;
+            line-height: 1.7;
+            transition: color .2s ease;
+        }
+
+        .lux-footer .footer-links a:hover {
+            color: var(--gold-light) !important;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 13px;
+        }
+
+        .footer-contact i {
+            margin-top: 4px;
+            color: var(--gold) !important;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 37px;
+            height: 37px;
+            border: 1px solid rgba(225, 189, 120, .55);
+            border-radius: 50%;
+            color: var(--gold-light) !important;
+            transition: .25s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold) !important;
+            color: var(--wine-dark) !important;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding: 20px 12px;
+            border-top: 1px solid rgba(225, 189, 120, .25);
+            color: #e0cdcf !important;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .footer-bottom span {
+            color: var(--gold-light) !important;
+        }
+
+        #formMessage .alert {
+            border-radius: 9px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1199px) {
+            .lux-navbar .navbar-nav .nav-link {
+                padding-right: 7px !important;
+                padding-left: 7px !important;
+                font-size: 11px;
+            }
+
+            .nav-search .form-control {
+                width: 125px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .lux-navbar .navbar-collapse {
+                margin-top: 12px;
+                padding: 12px 15px 16px;
+                border-top: 1px solid rgba(225, 189, 120, .3);
+                background: var(--wine) !important;
+            }
+
+            .lux-navbar .navbar-nav {
+                align-items: stretch !important;
+            }
+
+            .lux-navbar .navbar-nav .nav-link {
+                padding: 11px 8px !important;
+                border-radius: 6px;
+                color: #fff8f1 !important;
+                font-size: 13px;
+            }
+
+            .lux-navbar .navbar-nav .nav-link:hover,
+            .lux-navbar .navbar-nav .nav-link.active {
+                background: rgba(225, 189, 120, .08);
+                color: var(--gold-light) !important;
+            }
+
+            .nav-search {
+                margin-top: 12px;
+            }
+
+            .nav-search .form-control {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .reviews-hero {
+                padding: 60px 18px 66px;
+            }
+
+            .reviews-hero h1 {
+                font-size: clamp(34px, 9vw, 43px);
+                line-height: 1.35;
+            }
+
+            .reviews-hero p {
+                font-size: 14px;
+                line-height: 1.9;
+            }
+
+            .section-padding {
+                padding: 55px 0;
+            }
+
+            .feedback-intro,
+            .feedback-form-wrap {
+                padding: 26px 22px;
+            }
+
+            .review-slider {
+                padding: 0 32px;
+            }
+
+            .slider-arrow {
+                width: 33px;
+                height: 33px;
+                font-size: 12px;
+            }
+
+            .review-slide {
+                padding: 6px;
+            }
+
+            .review-card {
+                min-height: 385px;
+                padding: 26px 17px;
+            }
+
+            .review-text {
+                font-size: 15px;
+            }
+
+            .slider-prev {
+                left: -2px;
+            }
+
+            .slider-next {
+                right: -2px;
+            }
+
+            .lux-footer .footer-column {
+                margin-bottom: 22px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .lux-navbar .navbar-brand {
+                gap: 7px;
+                font-size: 17px;
+            }
+
+            .lux-navbar .navbar-brand img {
+                width: 37px;
+                height: 37px;
+            }
+
+            .announcement-bar {
+                font-size: 10px;
+                letter-spacing: .4px;
+            }
+
+            .feedback-form-wrap {
+                padding: 23px 17px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+<link href="site-unify.css" rel="stylesheet"/></head>
+<body>
+
+<!-- Navbar -->
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg custom-navbar">
+<div class="container-fluid px-3 px-lg-4">
+<a aria-label="Culina Luxe home" class="navbar-brand" href="index.html">
+<img alt="Culina Luxe logo" class="navbar-logo" src="images/logo.png"/>
+<span>Culina Luxe</span>
+</a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+<i aria-hidden="true" class="fa-solid fa-house me-1"></i>Home
+            </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html">About Us</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="product.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="compare.html">Compare</a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="review.html">Feedback</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact Us</a>
+</li>
+</ul>
+<form action="product.html" class="nav-form" method="get" role="search">
+<input aria-label="Search products" class="form-control nav-search" name="search" placeholder="Search kitchenware..." type="search"/>
+<button aria-label="Search" class="btn btn-search" type="submit">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+</button>
+</form>
+<div class="nav-icons">
+<a aria-label="Shopping cart" href="checkout.html" title="Shopping cart">
+<i aria-hidden="true" class="fa-solid fa-cart-shopping"></i>
+</a>
+<a aria-label="My account" href="register.html" title="My account">
+<i aria-hidden="true" class="fa-solid fa-user"></i>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero -->
+<section class="reviews-hero">
+<div class="container position-relative">
+<span class="eyebrow">The Culina Luxe Experience</span>
+<h1>Words from Our <span>Customers</span></h1>
+<div aria-hidden="true" class="gold-divider">
+<i class="fa-solid fa-star"></i>
+</div>
+<p>
+                    Every kitchen has a story. Read what our customers say about
+                    bringing quality, elegance and everyday convenience into theirs.
+                </p>
+</div>
+</section>
+<!-- Feedback form -->
+<section class="feedback-section section-padding" id="feedback">
+<div class="container">
+<div class="text-center mb-5">
+<span class="eyebrow">Your Voice Matters</span>
+<h2 class="section-heading">Share Your Experience</h2>
+<p class="section-subtitle">
+                        Purchased from Culina Luxe? Tell us how we did.
+                        Your feedback helps us serve you better.
+                    </p>
+</div>
+<div class="feedback-card">
+<div class="row g-0">
+<div class="col-lg-5">
+<div class="feedback-intro h-100">
+<span class="eyebrow">A Note from Us</span>
+<h2>Thank You for Choosing Us</h2>
+<p>
+                                    We believe great kitchen essentials should combine
+                                    thoughtful design, reliable quality and a wonderful
+                                    customer experience.
+                                </p>
+<div class="feedback-benefit">
+<i aria-hidden="true" class="fa-solid fa-gem"></i>
+<span>Quality products, carefully selected</span>
+</div>
+<div class="feedback-benefit">
+<i aria-hidden="true" class="fa-solid fa-heart"></i>
+<span>Customer satisfaction comes first</span>
+</div>
+<div class="feedback-benefit">
+<i aria-hidden="true" class="fa-solid fa-star"></i>
+<span>Your opinion helps us improve</span>
+</div>
+</div>
+</div>
+<div class="col-lg-7">
+<div class="feedback-form-wrap">
+<div aria-live="polite" id="formMessage"></div>
+<form id="feedbackForm">
+<div class="row g-3">
+<div class="col-md-6">
+<label for="customerName">Full Name</label>
+<input autocomplete="name" class="form-control" id="customerName" name="name" placeholder="Enter your name" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<label for="customerEmail">Email Address</label>
+<input autocomplete="email" class="form-control" id="customerEmail" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<div class="col-12">
+<label>How would you rate us?</label>
+<div aria-label="Your rating" class="rating-stars" role="radiogroup">
+<input id="star5" name="rating" required="" type="radio" value="5"/>
+<label for="star5" title="5 stars">
+<i class="fa-solid fa-star"></i>
+</label>
+<input id="star4" name="rating" type="radio" value="4"/>
+<label for="star4" title="4 stars">
+<i class="fa-solid fa-star"></i>
+</label>
+<input id="star3" name="rating" type="radio" value="3"/>
+<label for="star3" title="3 stars">
+<i class="fa-solid fa-star"></i>
+</label>
+<input id="star2" name="rating" type="radio" value="2"/>
+<label for="star2" title="2 stars">
+<i class="fa-solid fa-star"></i>
+</label>
+<input id="star1" name="rating" type="radio" value="1"/>
+<label for="star1" title="1 star">
+<i class="fa-solid fa-star"></i>
+</label>
+</div>
+</div>
+<div class="col-12">
+<label for="customerComments">Your Feedback</label>
+<textarea class="form-control" id="customerComments" name="comments" placeholder="Tell us about your experience..." required=""></textarea>
+</div>
+<div class="col-12 pt-2">
+<button class="btn-lux" type="submit">
+                                                Submit Feedback
+                                                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
+</button>
+<p class="mt-3 mb-0 text-secondary" style="font-size:11px;">
+<i aria-hidden="true" class="fa-solid fa-lock me-1"></i>
+                                                Your details are used only to handle your feedback.
+                                            </p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- What we value -->
+<section class="values-section">
+<div class="container">
+<div class="text-center mb-5">
+<span class="eyebrow">Our Promise</span>
+<h2 class="section-heading">What We Value</h2>
+<p class="section-subtitle">
+                        The principles behind every product and every customer interaction.
+                    </p>
+</div>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="value-card">
+<div class="value-icon">
+<i aria-hidden="true" class="fa-solid fa-medal"></i>
+</div>
+<h3>Quality First</h3>
+<p>
+                                We aim to bring you dependable kitchen essentials
+                                designed for everyday use.
+                            </p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="value-card">
+<div class="value-icon">
+<i aria-hidden="true" class="fa-solid fa-handshake-angle"></i>
+</div>
+<h3>Customer Care</h3>
+<p>
+                                We value honest feedback and strive to make
+                                every interaction helpful and respectful.
+                            </p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="value-card">
+<div class="value-icon">
+<i aria-hidden="true" class="fa-solid fa-kitchen-set"></i>
+</div>
+<h3>Everyday Elegance</h3>
+<p>
+                                Thoughtful kitchen products can make daily
+                                routines more convenient and enjoyable.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer reviews slider -->
+<section class="customer-reviews section-padding" id="customerReviews">
+<div class="container">
+<div class="text-center">
+<span class="eyebrow">Customer Stories</span>
+<h2 class="section-heading">Customer Reviews</h2>
+<p class="section-subtitle">
+                        Discover experiences shared by customers who have chosen
+                        our kitchen appliances and essentials.
+                    </p>
+</div>
+<div aria-label="Customer review carousel" class="review-slider">
+<button aria-label="Previous review" class="slider-arrow slider-prev" id="prevReview" type="button">
+<i aria-hidden="true" class="fa-solid fa-chevron-left"></i>
+</button>
+<div class="review-viewport" id="reviewViewport">
+<div class="review-track" id="reviewTrack">
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p1.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The product looks elegant and works well in my kitchen. The overall shopping experience was smooth.</p>
+<h3 class="reviewer-name">Ayesha Khan</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p2.webp"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">I appreciate the stylish design and the practical features. It has been a useful addition to my home.</p>
+<h3 class="reviewer-name">Hamza Ali</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p3.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A lovely addition to our kitchen. The design feels premium and fits beautifully with our appliances.</p>
+<h3 class="reviewer-name">Fatima Ahmed</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p4.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The product is easy to use and looks great on the counter. I am happy with my purchase.</p>
+<h3 class="reviewer-name">Usman Malik</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p5.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">I like the attention to detail. The product feels thoughtfully designed for everyday kitchen tasks.</p>
+<h3 class="reviewer-name">Sana Iqbal</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p6.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A neat, attractive product that suits my kitchen. The ordering process was straightforward.</p>
+<h3 class="reviewer-name">Bilal Hussain</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p1.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The elegant finish makes the product look more expensive than I expected. A pleasant experience.</p>
+<h3 class="reviewer-name">Maham Raza</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p2.webp"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">It fits nicely into our kitchen setup and is simple to operate. I like the overall design.</p>
+<h3 class="reviewer-name">Ahmed Siddiqui</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p3.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A useful purchase for our home. The design is clean, modern and easy to match with other kitchen items.</p>
+<h3 class="reviewer-name">Zainab Noor</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p4.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The product looks beautiful in our kitchen and makes the space feel more organised.</p>
+<h3 class="reviewer-name">Daniyal Shah</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p5.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">I appreciate the simple design and convenient features. It works nicely for my daily routine.</p>
+<h3 class="reviewer-name">Hira Javed</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p6.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A good-looking kitchen product with a practical design. It has been a nice addition to our home.</p>
+<h3 class="reviewer-name">Saad Ahmed</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p1.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The finish is attractive and the product blends well with the rest of my kitchen essentials.</p>
+<h3 class="reviewer-name">Maryam Tariq</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p2.webp"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The design is tasteful and the product is easy to incorporate into our everyday kitchen routine.</p>
+<h3 class="reviewer-name">Farhan Qureshi</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p3.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">I like the balance between appearance and usefulness. It is a thoughtful addition to the kitchen.</p>
+<h3 class="reviewer-name">Laiba Aslam</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p4.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The product looks elegant and feels suitable for regular use. Overall, I am pleased with it.</p>
+<h3 class="reviewer-name">Omar Farooq</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p5.jpeg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A lovely product that fits the look of my kitchen. I appreciate the attention to its appearance.</p>
+<h3 class="reviewer-name">Iqra Khalid</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p6.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">The design is modern and practical. It is a welcome addition to our everyday kitchen setup.</p>
+<h3 class="reviewer-name">Rayan Sheikh</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p1.jpg"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">I like how the product looks and fits into the kitchen. It has a clean and polished finish.</p>
+<h3 class="reviewer-name">Anum Fatima</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+<article class="review-slide">
+<div class="review-card">
+<i aria-hidden="true" class="fa-solid fa-quote-left review-quote-icon"></i>
+<img alt="Customer review" class="reviewer-image" loading="lazy" src="images/p2.webp"/>
+<div aria-label="5 out of 5 stars" class="review-stars">★★★★★</div>
+<p class="review-text">A stylish choice for the home. I appreciate the elegant presentation and practical design.</p>
+<h3 class="reviewer-name">Kashif Mehmood</h3>
+<span class="reviewer-label">Customer Review</span>
+</div>
+</article>
+</div>
+</div>
+<button aria-label="Next review" class="slider-arrow slider-next" id="nextReview" type="button">
+<i aria-hidden="true" class="fa-solid fa-chevron-right"></i>
+</button>
+<div aria-label="Choose a review" class="slider-dots" id="reviewDots"></div>
+<div aria-live="polite" class="review-counter" id="reviewCounter">Review 1 of 20</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="lux-footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-4 col-md-6 footer-column">
+<div class="footer-brand">Culina Luxe</div>
+<p class="footer-description">
+                        Bringing elegance and practicality to your kitchen.
+                        Discover thoughtfully selected kitchen appliances and
+                        essentials for everyday living.
+                    </p>
+<div class="social-links">
+<a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-youtube"></i>
+</a>
+<a aria-label="TikTok" href="https://www.tiktok.com/" rel="noopener noreferrer" target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+</div>
+</div>
+<div class="col-lg-2 col-md-6 footer-column">
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="product.html">Our Products</a>
+<a href="compare.html">Compare Products</a>
+<a href="review.html">Customer Reviews</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 footer-column">
+<h3>Customer Care</h3>
+<div class="footer-links">
+<a href="contact.html">Contact Us</a>
+<a href="checkout.html">Shopping Cart</a>
+<a href="register.html">My Account</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 footer-column">
+<h3>Get in Touch</h3>
+<div class="footer-contact">
+<i aria-hidden="true" class="fa-solid fa-location-dot"></i>
+<span>Pakistan</span>
+</div>
+<div class="footer-contact">
+<i aria-hidden="true" class="fa-solid fa-truck-fast"></i>
+<span>Delivery across Pakistan</span>
+</div>
+<div class="footer-contact">
+<i aria-hidden="true" class="fa-solid fa-clock"></i>
+<span>Karachi delivery within 24 hours, subject to availability</span>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+            © <span id="currentYear"></span> <span>Culina Luxe</span>.
+            All rights reserved.
+        </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const yearElement = document.getElementById("currentYear");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            /* Front-end feedback demo only; this does not save to a database. */
+            const feedbackForm = document.getElementById("feedbackForm");
+            const formMessage = document.getElementById("formMessage");
+
+            if (feedbackForm && formMessage) {
+                feedbackForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    if (!feedbackForm.checkValidity()) {
+                        feedbackForm.reportValidity();
+                        return;
+                    }
+
+                    formMessage.innerHTML =
+                        '<div class="alert alert-success" role="status">' +
+                        '<i class="fa-solid fa-circle-check me-2"></i>' +
+                        'Thank you for sharing your feedback! Your form was submitted in this demo.' +
+                        '</div>';
+
+                    feedbackForm.reset();
+
+                    formMessage.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
+                });
+            }
+
+            /* Customer review slider */
+            const track = document.getElementById("reviewTrack");
+            const viewport = document.getElementById("reviewViewport");
+            const prevButton = document.getElementById("prevReview");
+            const nextButton = document.getElementById("nextReview");
+            const dotsContainer = document.getElementById("reviewDots");
+            const counter = document.getElementById("reviewCounter");
+
+            if (!track || !viewport || !prevButton || !nextButton ||
+                !dotsContainer || !counter) {
+                return;
+            }
+
+            const slides = Array.from(track.querySelectorAll(".review-slide"));
+            if (!slides.length) return;
+
+            let currentIndex = 0;
+            let autoSlideTimer = null;
+            let touchStartX = 0;
+
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            );
+
+            const dots = slides.map(function (_, index) {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "slider-dot";
+                dot.setAttribute("aria-label", "Show review " + (index + 1));
+
+                dot.addEventListener("click", function () {
+                    showSlide(index);
+                    startAutoSlide();
+                });
+
+                dotsContainer.appendChild(dot);
+                return dot;
+            });
+
+            function showSlide(index) {
+                currentIndex = (index + slides.length) % slides.length;
+
+                track.style.transform =
+                    "translate3d(-" + (currentIndex * 100) + "%, 0, 0)";
+
+                dots.forEach(function (dot, dotIndex) {
+                    const active = dotIndex === currentIndex;
+                    dot.classList.toggle("active", active);
+
+                    if (active) {
+                        dot.setAttribute("aria-current", "true");
+                    } else {
+                        dot.removeAttribute("aria-current");
+                    }
+                });
+
+                counter.textContent =
+                    "Review " + (currentIndex + 1) + " of " + slides.length;
+            }
+
+            function stopAutoSlide() {
+                if (autoSlideTimer !== null) {
+                    clearInterval(autoSlideTimer);
+                    autoSlideTimer = null;
+                }
+            }
+
+            function startAutoSlide() {
+                stopAutoSlide();
+
+                if (reducedMotion.matches || document.hidden || slides.length < 2) {
+                    return;
+                }
+
+                autoSlideTimer = setInterval(function () {
+                    showSlide(currentIndex + 1);
+                }, 10000);
+            }
+
+            prevButton.addEventListener("click", function () {
+                showSlide(currentIndex - 1);
+                startAutoSlide();
+            });
+
+            nextButton.addEventListener("click", function () {
+                showSlide(currentIndex + 1);
+                startAutoSlide();
+            });
+
+            viewport.addEventListener("mouseenter", stopAutoSlide);
+            viewport.addEventListener("mouseleave", startAutoSlide);
+            viewport.addEventListener("focusin", stopAutoSlide);
+            viewport.addEventListener("focusout", startAutoSlide);
+
+            viewport.addEventListener("touchstart", function (event) {
+                if (event.changedTouches.length) {
+                    touchStartX = event.changedTouches[0].screenX;
+                }
+            }, { passive: true });
+
+            viewport.addEventListener("touchend", function (event) {
+                if (!event.changedTouches.length) return;
+
+                const touchEndX = event.changedTouches[0].screenX;
+                const distance = touchEndX - touchStartX;
+
+                if (Math.abs(distance) > 45) {
+                    showSlide(currentIndex + (distance < 0 ? 1 : -1));
+                    startAutoSlide();
+                }
+            }, { passive: true });
+
+            document.addEventListener("visibilitychange", function () {
+                if (document.hidden) {
+                    stopAutoSlide();
+                } else {
+                    startAutoSlide();
+                }
+            });
+
+            if (reducedMotion.addEventListener) {
+                reducedMotion.addEventListener("change", startAutoSlide);
+            } else if (reducedMotion.addListener) {
+                reducedMotion.addListener(startAutoSlide);
+            }
+
+            showSlide(0);
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>

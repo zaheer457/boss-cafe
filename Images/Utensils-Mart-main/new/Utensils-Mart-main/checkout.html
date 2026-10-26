@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#35101d"/>
+<title>Checkout | Culina Luxe</title>
+<link rel="icon" href="images/logo.png" type="image/x-icon"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+
+
+<style>
+:root {
+  --wine: #35101d;
+  --wine-light: #592536;
+  --burgundy: #762d43;
+  --gold: #c6a15b;
+  --gold-light: #e7d19a;
+  --ivory: #faf6ef;
+  --paper: #fffdf9;
+  --ink: #30252a;
+  --muted: #82747a;
+  --line: #e9ded8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Checkout Hero */
+
+.checkout-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 18px 46px;
+  text-align: center;
+  color: white;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(198, 161, 91, .18), transparent 40%),
+    linear-gradient(120deg, #2c0d19, #592536 65%, #35101d);
+}
+
+.checkout-hero::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(231, 209, 154, .16);
+  border-radius: 50%;
+  left: -145px;
+  top: -175px;
+  pointer-events: none;
+}
+
+.checkout-hero .eyebrow {
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.checkout-hero h1 {
+  position: relative;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: clamp(31px, 5vw, 43px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 10px 0;
+}
+
+.checkout-hero p {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  color: #e5d5d8;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.hero-rule {
+  width: 48px;
+  height: 2px;
+  margin: 17px auto 0;
+  background: var(--gold);
+}
+
+/* Main Layout */
+
+.checkout-main {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 36px 18px 70px;
+}
+
+.section-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 9px 28px rgba(53, 16, 29, .04);
+  margin-bottom: 22px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.section-card:hover {
+  box-shadow: 0 13px 34px rgba(53, 16, 29, .075);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 17px;
+  margin-bottom: 19px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--gold-light);
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--wine);
+  margin: 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+/* Checkout Table */
+
+.checkout-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.checkout-table {
+  width: 100%;
+  min-width: 570px;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.checkout-table th {
+  background: #f4eae6;
+  color: var(--wine);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.checkout-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #f0e8e2;
+  vertical-align: middle;
+  font-size: 13px;
+  color: #59474e;
+}
+
+.checkout-table tfoot td {
+  background: #fcf7f0;
+  border-bottom: 0;
+}
+
+.item-name {
+  color: var(--wine);
+  font-weight: 700;
+  min-width: 150px;
+}
+
+.item-price {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Quantity Controls */
+
+.quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.quantity-controls button {
+  width: 29px;
+  height: 29px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+  color: var(--wine);
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.quantity-controls button:hover {
+  background: var(--wine);
+  color: white;
+}
+
+.remove-item {
+  border: 1px solid #ead1d6;
+  border-radius: 5px;
+  background: #fff7f7;
+  color: #963c50;
+  padding: 6px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.remove-item:hover {
+  background: #963c50;
+  color: white;
+}
+
+/* Empty Cart */
+
+.empty-cart {
+  text-align: center;
+  padding: 36px 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty-cart i {
+  display: block;
+  color: var(--gold);
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.empty-cart h3 {
+  font-family: Georgia, serif;
+  color: var(--wine);
+  font-size: 23px;
+}
+
+/* Buttons */
+
+.btn-luxe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  background: var(--wine);
+  color: var(--gold-light);
+  border: 1px solid var(--wine);
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-align: center;
+  transition: all .2s ease;
+}
+
+.btn-luxe:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--wine);
+}
+
+.btn-luxe:disabled,
+.btn-danger-soft:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.btn-outline-luxe {
+  display: inline-block;
+  background: transparent;
+  color: var(--wine);
+  border: 1px solid var(--wine);
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.btn-outline-luxe:hover {
+  background: var(--wine);
+  color: white;
+}
+
+.btn-danger-soft {
+  background: transparent;
+  color: #963c50;
+  border: 1px solid #e5c7cd;
+  border-radius: 6px;
+  padding: 9px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+
+.btn-danger-soft:hover {
+  background: #963c50;
+  color: white;
+}
+
+/* Form Fields */
+
+.form-label {
+  color: var(--wine);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+  min-height: 46px;
+  border: 1px solid #e4d7d1;
+  border-radius: 6px;
+  background-color: white;
+  color: var(--ink);
+  font-size: 13px;
+  box-shadow: none !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, .14) !important;
+}
+
+.form-control::placeholder {
+  color: #a3959a;
+}
+
+/* Order Summary */
+
+.order-summary {
+  position: sticky;
+  top: 20px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(198, 161, 91, .16), transparent 34%),
+    linear-gradient(145deg, #35101d, #592536);
+  color: white;
+  border: 1px solid rgba(231, 209, 154, .22);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 28px rgba(53, 16, 29, .12);
+}
+
+.order-summary h2 {
+  font-family: Georgia, serif;
+  color: var(--gold-light);
+  font-size: 24px;
+  line-height: 1.25;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  margin-bottom: 18px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #e5d5d8;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.summary-row strong {
+  color: white;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-total {
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  padding-top: 18px;
+  margin-top: 18px;
+  color: var(--gold-light);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.summary-total strong {
+  color: var(--gold-light);
+  font-size: 23px;
+}
+
+.secure-note {
+  color: #d3c0c6;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 20px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  padding-top: 15px;
+}
+
+.secure-note i {
+  color: var(--gold-light);
+}
+
+/* Notices */
+
+.notice {
+  border-radius: 7px;
+  padding: 12px 15px;
+  font-size: 12px;
+  margin-bottom: 17px;
+}
+
+.notice-error {
+  background: #fff1f0;
+  border: 1px solid #f0cfca;
+  color: #8e3030;
+}
+
+.notice-success {
+  background: #eff8ee;
+  border: 1px solid #cfe5ca;
+  color: #2d6935;
+}
+
+/* Navigation */
+
+.custom-navbar {
+  position: relative;
+  z-index: 20;
+  background: rgba(255, 253, 249, .98) !important;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 5px 22px rgba(53, 16, 29, .045);
+  padding: 12px 0;
+}
+
+.custom-navbar .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--wine) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  white-space: nowrap;
+}
+
+.custom-navbar .navbar-logo {
+  width: 48px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.custom-navbar .navbar-nav {
+  gap: 2px;
+}
+
+.custom-navbar .nav-link {
+  color: #49333c !important;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 11px !important;
+  border-radius: 7px;
+  transition: color .2s ease, background .2s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus {
+  color: var(--wine) !important;
+  background: #f5eceb;
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: #e4d7d1;
+  box-shadow: none !important;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  filter: sepia(.4) saturate(1.4);
+}
+
+/* Search Bar - Improved Circle */
+
+.nav-form {
+  display: flex;
+  align-items: center;
+  max-width: 220px;
+  margin: 0 14px 0 8px;
+  position: relative;
+}
+
+.nav-form .nav-search {
+  min-height: 38px;
+  padding-right: 42px;
+  border-radius: 22px;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #e4d7d1;
+}
+
+.nav-form .btn-search {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  min-width: 29px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ead8ce;
+  border-radius: 50%;
+  color: #35101d;
+  background: #f8efeb;
+  line-height: 1;
+  box-shadow: none;
+  flex-shrink: 0;
+  transition:
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.nav-form .btn-search i {
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.nav-form .btn-search:hover,
+.nav-form .btn-search:focus-visible {
+  color: #fff;
+  background: #35101d;
+  border-color: #35101d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, .18);
+}
+
+/* Navbar Icons */
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--wine);
+  background: #f5eceb;
+  border: 1px solid #eee0df;
+  border-radius: 50%;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.nav-icons a:hover {
+  background: #ead8d8;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  text-align: left;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(198, 161, 91, .13), transparent 28%),
+    linear-gradient(125deg, #260b15, #421321 65%, #35101d) !important;
+  border-top: 3px solid var(--gold);
+  color: #d9cbd0 !important;
+}
+
+.site-footer i {
+  color: var(--gold-light);
+}
+
+.footer-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 42px 20px 32px;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-brand img {
+  width: 42px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .15));
+}
+
+.footer-about {
+  max-width: 350px;
+  color: #d9cbd0;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.footer-heading {
+  margin: 4px 0 17px;
+  color: var(--gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer-links {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: #d9cbd0 !important;
+  font-size: 12px;
+  transition: color .2s ease, padding-left .2s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: var(--gold-light) !important;
+  padding-left: 3px;
+}
+
+.footer-contact {
+  display: grid;
+  gap: 12px;
+  color: #d9cbd0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-contact i {
+  color: var(--gold-light);
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  padding: 17px 15px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, .13);
+  color: #c8b7bd;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.footer-bottom a {
+  color: var(--gold-light) !important;
+}
+
+.footer-bottom a:hover {
+  color: #fff !important;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1199.98px) {
+  .custom-navbar .nav-link {
+    padding: 9px 8px !important;
+    font-size: 11px;
+  }
+
+  .nav-form {
+    max-width: 185px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    padding: 14px 2px 5px;
+  }
+
+  .custom-navbar .navbar-nav {
+    align-items: stretch;
+    padding-bottom: 8px;
+  }
+
+  .custom-navbar .nav-link {
+    padding: 10px 12px !important;
+    font-size: 13px;
+  }
+
+  .nav-form {
+    max-width: 100%;
+    width: 100%;
+    margin: 8px 0 12px;
+  }
+
+  .nav-form .nav-search {
+    width: 100%;
+  }
+
+  .nav-icons {
+    padding-bottom: 8px;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .checkout-hero {
+    padding: 39px 16px 37px;
+  }
+
+  .checkout-hero .eyebrow {
+    letter-spacing: 2.5px;
+  }
+
+  .checkout-main {
+    padding: 25px 12px 45px;
+  }
+
+  .section-card {
+    padding: 17px 13px;
+    margin-bottom: 17px;
+  }
+
+  .section-heading h2 {
+    font-size: 21px;
+  }
+
+  .footer-main {
+    padding: 34px 20px 24px;
+  }
+
+  .footer-main > .row {
+    row-gap: 27px;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 17px;
+  }
+
+  .custom-navbar .navbar-logo {
+    width: 44px;
+    height: 40px;
+  }
+}
+
+</style>
+
+
+<link href="site-unify.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid px-3 px-lg-4">
+
+    <a aria-label="Culina Luxe home" class="navbar-brand" href="index.html">
+      <img alt="Culina Luxe logo" class="navbar-logo" src="images/logo.png"/>
+      <span>Culina Luxe</span>
+    </a>
+
+    <button
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      class="navbar-toggler"
+      data-bs-target="#navbarNav"
+      data-bs-toggle="collapse"
+      type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i aria-hidden="true" class="fa-solid fa-house me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="compare.html">Compare</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="review.html">Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+
+      <form action="product.html" class="nav-form" method="get" role="search">
+        <input
+          aria-label="Search products"
+          class="form-control nav-search"
+          name="search"
+          placeholder="Search kitchenware..."
+          type="search"/>
+
+        <button aria-label="Search" class="btn btn-search" type="submit">
+          <i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <div class="nav-icons">
+        <a aria-label="Shopping cart" href="checkout.html" title="Shopping cart">
+          <i aria-hidden="true" class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a aria-label="My account" href="register.html" title="My account">
+          <i aria-hidden="true" class="fa-solid fa-user"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="checkout-hero">
+  <div class="eyebrow">Culina Luxe · Your Selection</div>
+  <h1>Checkout</h1>
+  <p>Review your selection and enter your delivery details.</p>
+  <div class="hero-rule"></div>
+</header>
+
+<main class="checkout-main">
+  <div aria-live="polite" id="page-notice"></div>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+
+      <section class="section-card">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <div>
+            <h2>Your Shopping Bag</h2>
+            <p>Review items and adjust quantities before continuing.</p>
+          </div>
+        </div>
+
+        <div class="empty-cart" hidden id="empty-cart-message">
+          <i class="bi bi-bag"></i>
+          <h3>Your bag is waiting</h3>
+          <p>Add your favourite kitchen essentials to get started.</p>
+          <a class="btn-luxe mt-2" href="product.html">
+            <i class="bi bi-arrow-left"></i> Explore Products
+          </a>
+        </div>
+
+        <div id="checkout-cart">
+          <div class="checkout-table-wrap">
+            <table class="checkout-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="cart-items"></tbody>
+              <tfoot>
+                <tr>
+                  <td class="text-end fw-bold" colspan="3">Total</td>
+                  <td class="fw-bold" id="total-price">$0.00</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mt-4">
+            <a class="btn-outline-luxe" href="product.html">
+              <i class="bi bi-arrow-left me-1"></i> Continue Shopping
+            </a>
+            <button class="btn-danger-soft" id="clear-cart" type="button">
+              <i class="bi bi-trash3 me-1"></i> Clear Cart
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <div>
+            <h2>Shipping Details</h2>
+            <p>Where should we deliver your order?</p>
+          </div>
+        </div>
+
+        <form id="shipping-form">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="full-name">Full Name *</label>
+              <input
+                autocomplete="name"
+                class="form-control"
+                id="full-name"
+                maxlength="100"
+                name="full_name"
+                placeholder="Enter your full name"
+                required
+                type="text"/>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="phone">Phone Number *</label>
+              <input
+                autocomplete="tel"
+                class="form-control"
+                id="phone"
+                maxlength="25"
+                name="phone"
+                placeholder="e.g. 03XX XXXXXXX"
+                required
+                type="tel"/>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="country">Country *</label>
+              <select class="form-select" id="country" name="country" required>
+                <option selected value="Pakistan">Pakistan</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="city">City *</label>
+              <select class="form-select" id="city" name="city" required>
+                <option disabled selected value="">Select your city</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="address">Complete Delivery Address *</label>
+              <textarea
+                autocomplete="street-address"
+                class="form-control"
+                id="address"
+                maxlength="500"
+                name="address"
+                placeholder="House number, street, area, and any delivery instructions"
+                required
+                rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="form-label">Payment Method</label>
+            <div class="p-3 rounded-3" style="background:#f7efe7;border:1px solid #e9ded8;">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-cash-coin fs-3" style="color:#762d43;"></i>
+                <div>
+                  <div class="fw-bold" style="color:#35101d;font-size:13px;">
+                    Cash on Delivery
+                  </div>
+                  <div class="small text-secondary">Pay when your order arrives.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid mt-4">
+            <button
+              class="btn-luxe"
+              id="place-order"
+              type="submit"
+              aria-label="Place order using Cash on Delivery">
+              Place Order <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+
+          <p class="text-secondary mt-3 mb-0" style="font-size:11px;line-height:1.8;">
+            <i class="bi bi-info-circle me-1"></i>
+            This demo checkout does not transmit orders to a server.
+            A successful message here does not mean a real order has been recorded.
+          </p>
+        </form>
+      </section>
+    </div>
+
+    <aside class="col-lg-4">
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Items</span>
+          <strong id="summary-quantity">0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="summary-subtotal">$0.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong>Free</strong>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong id="summary-total">$0.00</strong>
+        </div>
+
+        <p class="secure-note">
+          <i class="bi bi-shield-check me-1"></i>
+          Your details are used by this demo page to validate the checkout form.
+          No online payment is processed.
+        </p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="row g-4">
+      <div class="col-lg-5 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <img src="images/logo.png" alt="Culina Luxe logo"/>
+          <span>Culina Luxe</span>
+        </a>
+        <p class="footer-about">
+          Thoughtful essentials for beautiful kitchens. Discover timeless kitchenware
+          designed to bring elegance, comfort, and everyday practicality to your home.
+        </p>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h3 class="footer-heading">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Shop Products</a></li>
+          <li><a href="about.html">About Culina Luxe</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <h3 class="footer-heading">We're Here to Help</h3>
+        <div class="footer-contact">
+          <div><i class="bi bi-truck"></i>Delivery details are confirmed at checkout.</div>
+          <div><i class="bi bi-shield-check"></i>Secure, simple Cash on Delivery checkout.</div>
+          <div><i class="bi bi-envelope"></i><a href="contact.html">Send us a message</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Culina Luxe · Thoughtful essentials for beautiful kitchens.</div>
+    <a href="index.html">Return to Home</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+"use strict";
+
+const cartItemsContainer = document.getElementById("cart-items");
+const totalPriceElement = document.getElementById("total-price");
+const checkoutCart = document.getElementById("checkout-cart");
+const emptyCartMessage = document.getElementById("empty-cart-message");
+const pageNotice = document.getElementById("page-notice");
+const shippingForm = document.getElementById("shipping-form");
+
+let cart = [];
+
+function readCart() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("cart") || "[]");
+
+    if (!Array.isArray(saved)) return [];
+
+    return saved.filter(item =>
+      item &&
+      Number.isInteger(Number(item.id)) &&
+      typeof item.name === "string" &&
+      Number.isFinite(Number(item.price)) &&
+      Number(item.price) >= 0 &&
+      Number.isInteger(Number(item.quantity)) &&
+      Number(item.quantity) > 0
+    ).map(item => ({
+      id: Number(item.id),
+      name: item.name,
+      price: Number(item.price),
+      quantity: Number(item.quantity),
+      image: typeof item.image === "string" ? item.image : ""
+    }));
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveCart() {
+  try {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+  } catch (error) {
+    showNotice("Your cart could not be saved in this browser session.", "error");
+  }
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+function showNotice(message, type) {
+  pageNotice.innerHTML = `
+    <div class="notice ${type === "error" ? "notice-error" : "notice-success"}" role="status">
+      ${escapeHTML(message)}
+    </div>`;
+  pageNotice.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function renderCart() {
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "";
+    checkoutCart.hidden = true;
+    emptyCartMessage.hidden = false;
+  } else {
+    checkoutCart.hidden = false;
+    emptyCartMessage.hidden = true;
+
+    cartItemsContainer.innerHTML = cart.map(item => `
+      <tr>
+        <td><span class="item-name">${escapeHTML(item.name)}</span></td>
+        <td class="item-price">$${item.price.toFixed(2)}</td>
+        <td>
+          <div class="quantity-controls">
+            <button type="button" class="decrease-quantity"
+              data-id="${item.id}" aria-label="Decrease ${escapeHTML(item.name)} quantity">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" class="increase-quantity"
+              data-id="${item.id}" aria-label="Increase ${escapeHTML(item.name)} quantity">+</button>
+          </div>
+        </td>
+        <td class="item-price">$${(item.price * item.quantity).toFixed(2)}</td>
+        <td>
+          <button type="button" class="remove-item" data-id="${item.id}">
+            <i class="bi bi-x-lg me-1"></i> Remove
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  updateTotal();
+}
+
+function updateTotal() {
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity, 0
+  );
+
+  const quantity = cart.reduce(
+    (sum, item) => sum + item.quantity, 0
+  );
+
+  totalPriceElement.textContent = `$${total.toFixed(2)}`;
+
+  document.getElementById("summary-quantity").textContent = quantity;
+  document.getElementById("summary-subtotal").textContent = `$${total.toFixed(2)}`;
+  document.getElementById("summary-total").textContent = `$${total.toFixed(2)}`;
+
+  document.getElementById("place-order").disabled = cart.length === 0;
+  document.getElementById("clear-cart").disabled = cart.length === 0;
+}
+
+document.addEventListener("click", event => {
+  const button = event.target.closest(
+    ".increase-quantity, .decrease-quantity, .remove-item"
+  );
+
+  if (!button) return;
+
+  const id = Number(button.dataset.id);
+  const item = cart.find(product => product.id === id);
+
+  if (!item) return;
+
+  if (button.classList.contains("increase-quantity")) {
+    item.quantity += 1;
+  } else if (button.classList.contains("decrease-quantity")) {
+    if (item.quantity > 1) {
+      item.quantity -= 1;
+    } else {
+      cart = cart.filter(product => product.id !== id);
+    }
+  } else if (button.classList.contains("remove-item")) {
+    cart = cart.filter(product => product.id !== id);
+  }
+
+  saveCart();
+  renderCart();
+});
+
+document.getElementById("clear-cart").addEventListener("click", () => {
+  if (cart.length === 0) return;
+
+  if (confirm("Are you sure you want to clear your shopping bag?")) {
+    cart = [];
+    saveCart();
+    renderCart();
+    showNotice("Your shopping bag has been cleared.", "success");
+  }
+});
+
+const citiesByCountry = {
+  Pakistan: [
+    "Karachi", "Lahore", "Islamabad", "Rawalpindi",
+    "Faisalabad", "Multan", "Peshawar", "Quetta",
+    "Hyderabad", "Other"
+  ],
+  USA: ["New York", "Los Angeles", "Chicago", "Houston", "Other"],
+  Canada: ["Toronto", "Vancouver", "Montreal", "Calgary", "Other"],
+  UK: ["London", "Manchester", "Birmingham", "Liverpool", "Other"]
+};
+
+const countrySelect = document.getElementById("country");
+const citySelect = document.getElementById("city");
+
+function updateCities() {
+  const cities = citiesByCountry[countrySelect.value] || [];
+
+  citySelect.innerHTML =
+    '<option value="" disabled selected>Select your city</option>';
+
+  cities.forEach(city => {
+    const option = document.createElement("option");
+    option.value = city;
+    option.textContent = city;
+    citySelect.appendChild(option);
+  });
+}
+
+countrySelect.addEventListener("change", updateCities);
+updateCities();
+
+shippingForm.addEventListener("submit", event => {
+  event.preventDefault();
+  pageNotice.innerHTML = "";
+
+  if (cart.length === 0) {
+    showNotice(
+      "Your shopping bag is empty. Please add products before checkout.",
+      "error"
+    );
+    return;
+  }
+
+  if (!shippingForm.checkValidity()) {
+    shippingForm.reportValidity();
+    return;
+  }
+
+  const fullName = document.getElementById("full-name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const country = countrySelect.value;
+  const city = citySelect.value;
+  const address = document.getElementById("address").value.trim();
+
+  if (!fullName || !phone || !country || !city || !address) {
+    showNotice("Please complete all required shipping fields.", "error");
+    return;
+  }
+
+  const order = {
+    reference: "CL-" + Date.now(),
+    customer: {
+      fullName,
+      phone,
+      country,
+      city,
+      address
+    },
+    items: cart.map(item => ({ ...item })),
+    total: cart.reduce(
+      (sum, item) => sum + item.price * item.quantity, 0
+    ),
+    paymentMethod: "Cash on Delivery",
+    createdAt: new Date().toISOString()
+  };
+
+  /*
+   * Demo only:
+   * This order is saved in sessionStorage, not sent to a server.
+   * It is not a real confirmed order and is not stored in a database.
+   */
+  try {
+    sessionStorage.setItem("lastDemoOrder", JSON.stringify(order));
+  } catch (error) {
+    showNotice(
+      "The demo order could not be saved in this browser session.",
+      "error"
+    );
+    return;
+  }
+
+  cart = [];
+  saveCart();
+  renderCart();
+  shippingForm.reset();
+  updateCities();
+
+  showNotice(
+    `Demo checkout completed. Reference: ${order.reference}. No real order has been submitted.`,
+    "success"
+  );
+});
+
+cart = readCart();
+renderCart();
+</script>
+
+</body>
+</html>

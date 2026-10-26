@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dining Collection | Culina Luxe</title>
+<meta content="Explore elegant dining essentials at Culina Luxe." name="description"/>
+<link href="images/logo.png" rel="icon" type="image/png"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        body {
+            background: #fbf6ef;
+            color: #45222c;
+        }
+
+        .appliances-hero {
+            padding: 70px 20px;
+            text-align: center;
+            color: #fff1df;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(210,170,105,.17), transparent 45%),
+                linear-gradient(125deg, #250710, #57172d 58%, #30101a);
+            border-top: 1px solid #b9955e;
+            border-bottom: 1px solid #b9955e;
+        }
+
+        .appliances-hero .eyebrow {
+            color: #e3c48f;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .appliances-hero h1 {
+            color: #fff4e7;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            margin: 15px 0;
+        }
+
+        .appliances-hero .description {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #ead7ca;
+            line-height: 1.9;
+        }
+
+        .hero-ornament {
+            margin: 22px 0;
+            color: #dfbd7f;
+        }
+
+        .hero-ornament::before,
+        .hero-ornament::after {
+            content: "";
+            display: inline-block;
+            width: 42px;
+            height: 1px;
+            margin: 0 12px 5px;
+            background: #b9955e;
+        }
+
+        .btn-luxe {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 22px;
+            color: #35101a;
+            background: linear-gradient(135deg, #f0d9a6, #c7a05e);
+            border: 1px solid #d4b274;
+            border-radius: 3px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .25s ease;
+        }
+
+        .btn-luxe:hover {
+            color: #35101a;
+            background: #fff0cc;
+            transform: translateY(-2px);
+        }
+
+        .appliances-layout {
+            padding-top: 50px;
+            padding-bottom: 85px;
+        }
+
+        .category-sidebar {
+            position: sticky;
+            top: 22px;
+            height: fit-content;
+            padding: 25px;
+            color: #f8e9dc;
+            background: linear-gradient(145deg, #3c1121, #230910);
+            border: 1px solid rgba(211,176,112,.45);
+            border-radius: 4px;
+            box-shadow: 0 12px 30px rgba(45,12,24,.1);
+        }
+
+        .category-sidebar .eyebrow {
+            color: #d9b67c;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .category-sidebar h2 {
+            color: #fff0df;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .category-links .list-group-item {
+            padding: 14px 3px;
+            color: #e9d6c8;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid rgba(230,194,138,.17);
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        .category-links .list-group-item.active {
+            color: #fff1df;
+            background: rgba(211,176,112,.16);
+            border-left: 2px solid #dfbd7f;
+            padding-left: 12px;
+        }
+
+        .category-links .list-group-item:last-child {
+            border-bottom: 0;
+        }
+
+        .category-links .list-group-item i {
+            width: 22px;
+            color: #dfbd7f;
+        }
+
+        .category-links .list-group-item:hover,
+        .category-links .list-group-item.active-category {
+            padding-left: 10px;
+            color: #f3d39a;
+        }
+
+        .sidebar-note {
+            color: #cbb7aa;
+            border-top: 1px solid rgba(230,194,138,.2);
+            line-height: 1.8;
+        }
+
+        .collection-heading .eyebrow {
+            color: #a7793c;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .collection-heading h2 {
+            color: #431322;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+        }
+
+        .collection-heading p {
+            color: #78645d;
+        }
+
+        .product-grid-card {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #43202a;
+            background: #fffaf3;
+            border: 1px solid #e8d8c5;
+            border-radius: 4px;
+            box-shadow: 0 5px 18px rgba(54,15,27,.05);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .product-grid-card:hover {
+            transform: translateY(-5px);
+            border-color: #c9a66e;
+            box-shadow: 0 15px 30px rgba(54,15,27,.12);
+        }
+
+        .product-image-wrap {
+            height: 245px;
+            padding: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(145deg, #fffdf9, #f4e9da);
+            border-bottom: 1px solid #eddfce;
+        }
+
+        .product-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform .35s ease;
+        }
+
+        .product-grid-card:hover .product-image-wrap img {
+            transform: scale(1.05);
+        }
+
+        .product-grid-card .card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 22px 20px;
+        }
+
+        .product-category {
+            color: #a47b43;
+            font-size: .67rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .product-grid-card .card-title {
+            min-height: 52px;
+            color: #431322;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.08rem;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+        }
+
+        .product-price {
+            margin-bottom: 20px;
+            color: #7c263e;
+            font-size: 1.08rem;
+            font-weight: 700;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            margin-top: auto;
+            padding: 12px;
+            color: #fff1df;
+            background: #481425;
+            border: 1px solid #481425;
+            border-radius: 3px;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .add-to-cart i {
+            color: #e4c18a;
+        }
+
+        .add-to-cart:hover {
+            color: #35101a;
+            background: linear-gradient(135deg, #efd9a6, #c7a05e);
+            border-color: #c7a05e;
+        }
+
+        .add-to-cart:hover i {
+            color: #35101a;
+        }
+
+        .empty-products {
+            padding: 50px 20px;
+            text-align: center;
+            color: #654c48;
+            background: #fffaf3;
+            border: 1px dashed #c9ad85;
+        }
+
+        .product-search {
+            min-height: 42px;
+            color: #43202a;
+            background: #fffaf3;
+            border-color: #d8c5ac;
+            border-radius: 3px;
+        }
+
+        .product-search:focus {
+            color: #43202a;
+            background: #fffaf3;
+            border-color: #a87d42;
+            box-shadow: 0 0 0 3px rgba(168,125,66,.13);
+        }
+
+        .cart-floating-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            color: #35101a;
+            background: linear-gradient(135deg, #f0d9a6, #c7a05e);
+            border: 1px solid #e6c98e;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(44,10,22,.22);
+        }
+
+        .cart-floating-button:hover {
+            color: #35101a;
+            background: #fff0cb;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -4px;
+            min-width: 23px;
+            height: 23px;
+            padding: 2px 5px;
+            color: #fff5e6;
+            background: #691d37;
+            border: 1px solid #e0bf82;
+            border-radius: 50px;
+            font-size: 12px;
+            line-height: 17px;
+            font-weight: 700;
+        }
+
+        #cartModal .modal-content {
+            overflow: hidden;
+            color: #47212b;
+            background: #fffaf3;
+            border: 1px solid #d7bd94;
+            border-radius: 4px;
+        }
+
+        #cartModal .modal-header {
+            color: #fff2e1;
+            background: #3b1020;
+            border-bottom: 1px solid #b8945a;
+        }
+
+        #cartModal .modal-title {
+            color: #fff2e1;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        #cartModal .btn-close {
+            filter: invert(1);
+        }
+
+        #cartModal .modal-footer {
+            background: #f6ecde;
+            border-top: 1px solid #e6d3b8;
+        }
+
+        .cart-product-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8d9c7;
+        }
+
+        .cart-product-row h3 {
+            color: #431322;
+        }
+
+        .cart-quantity-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-quantity-controls button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            color: #4a1425;
+            border-color: #bda17a;
+        }
+
+        .cart-outline {
+            padding: 10px 15px;
+            color: #4a1425;
+            background: transparent;
+            border: 1px solid #bda17a;
+            border-radius: 3px;
+        }
+
+        .cart-outline:hover {
+            color: #4a1425;
+            background: #f0e1cb;
+        }
+
+        .cart-checkout {
+            padding: 10px 16px;
+            color: #35101a;
+            background: linear-gradient(135deg, #efd9a6, #c6a05e);
+            border: 1px solid #c6a05e;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .footer {
+            overflow: hidden;
+            color: #d8c7bc;
+            background:
+                radial-gradient(ellipse at 0% 0%, rgba(139,53,72,.22), transparent 40%),
+                linear-gradient(135deg, #200810, #35101c 55%, #1b070d);
+            border-top: 2px solid #b18a4d;
+        }
+
+        .footer-top-line {
+            width: 52px;
+            height: 2px;
+            margin-bottom: 23px;
+            background: linear-gradient(90deg, #f0d9a6, #a97c3e);
+        }
+
+        .footer-brand {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #f3d9a8;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.8rem;
+            text-decoration: none;
+        }
+
+        .footer-title {
+            margin-bottom: 22px;
+            color: #f2d8a5;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.15rem;
+        }
+
+        .footer-description,
+        .footer-social-text {
+            color: #c9b7ac;
+            font-size: .92rem;
+            line-height: 1.9;
+        }
+
+        .footer-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #d6c5b9;
+            font-size: .92rem;
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f0d29a;
+            padding-left: 5px;
+        }
+
+        .footer .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+        }
+
+        .footer .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 41px;
+            height: 41px;
+            color: #efd7a5;
+            background: rgba(239,215,165,.06);
+            border: 1px solid rgba(220,183,122,.42);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: .25s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #2b0b14;
+            background: #e0bf82;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding: 19px 16px;
+            color: #c8b3a6;
+            background: rgba(0,0,0,.23);
+            border-top: 1px solid rgba(220,183,122,.23);
+            font-size: .83rem;
+        }
+
+        .footer-bottom i {
+            color: #e0bf82;
+        }
+
+        @media (max-width: 991px) {
+            .category-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .appliances-hero {
+                padding: 50px 17px;
+            }
+
+            .appliances-layout {
+                padding-top: 32px;
+                padding-bottom: 60px;
+            }
+
+            .product-image-wrap {
+                height: 225px;
+            }
+
+            .cart-product-row {
+                flex-wrap: wrap;
+            }
+
+            #cartModal .modal-footer > .d-flex:last-child {
+                flex-direction: column;
+            }
+
+            #cartModal .modal-footer > .d-flex:last-child > button,
+            #cartModal .modal-footer > .d-flex:last-child > div {
+                width: 100%;
+            }
+
+            #cartModal .modal-footer > .d-flex:last-child > div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+<link href="site-unify.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg custom-navbar">
+<div class="container-fluid px-3 px-lg-4">
+<a aria-label="Culina Luxe home" class="navbar-brand" href="index.html">
+<img alt="Culina Luxe logo" class="navbar-logo" src="images/logo.png"/>
+<span>Culina Luxe</span>
+</a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+<i aria-hidden="true" class="fa-solid fa-house me-1"></i>Home
+            </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html">About Us</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="product.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="compare.html">Compare</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="review.html">Feedback</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact Us</a>
+</li>
+</ul>
+<form action="product.html" class="nav-form" method="get" role="search">
+<input aria-label="Search products" class="form-control nav-search" name="search" placeholder="Search kitchenware..." type="search"/>
+<button aria-label="Search" class="btn btn-search" type="submit">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+</button>
+</form>
+<div class="nav-icons">
+<a aria-label="Shopping cart" href="checkout.html" title="Shopping cart">
+<i aria-hidden="true" class="fa-solid fa-cart-shopping"></i>
+</a>
+<a aria-label="My account" href="register.html" title="My account">
+<i aria-hidden="true" class="fa-solid fa-user"></i>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<header class="appliances-hero">
+<div class="container">
+<p class="eyebrow">THE CULINA LUXE COLLECTION</p>
+<h1>Dining Collection</h1>
+<div class="hero-ornament">
+<i class="fa-regular fa-gem"></i>
+</div>
+<p class="description">
+            Discover elegant dining essentials designed to bring warmth, beauty and timeless style to every meal.
+        </p>
+<a class="btn-luxe mt-4" href="#dining-products">
+            Explore Collection <i class="fa-solid fa-arrow-down"></i>
+</a>
+</div>
+</header>
+<section class="container appliances-layout" id="dining-products">
+<div class="row g-4">
+<aside class="col-lg-3">
+<div class="category-sidebar">
+<p class="eyebrow mb-2">EXPLORE THE RANGE</p>
+<h2 class="h4 mb-4">Categories</h2>
+<div class="list-group category-links">
+<a class="list-group-item" href="Cookware.html">
+<i class="bi bi-cup-hot"></i> Cookware
+                    </a>
+<a class="list-group-item" href="Refrigeration.html">
+<i class="bi bi-snow"></i> Refrigeration
+                    </a>
+<a class="list-group-item" href="Appliances.html">
+    <i class="fa-solid fa-blender me-2" aria-hidden="true"></i>
+    Appliances
+</a>
+<a class="list-group-item" href="Food-Storage.html">
+<i class="bi bi-box-seam"></i> Food Storage
+                    </a>
+<a aria-current="page" class="list-group-item active" href="dining.html">
+<i class="bi bi-cup-straw"></i> Dining
+                    </a>
+</div>
+<div class="sidebar-note mt-4 pt-3">
+<p class="small mb-0">
+<i class="fa-solid fa-gem me-2" style="color:#dfbd7f"></i>
+                        Everyday essentials, thoughtfully chosen for your home.
+                    </p>
+</div>
+</div>
+</aside>
+<main class="col-lg-9">
+<div class="collection-heading d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+<div>
+<p class="eyebrow mb-2">DESIGNED FOR EVERYDAY LIVING</p>
+<h2 class="mb-2">Dining Collection</h2>
+<p class="mb-0" id="product-count">3 products</p>
+</div>
+</div>
+<div aria-live="polite" class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4" id="product-list"></div>
+</main>
+</div>
+</section>
+<div class="position-fixed bottom-0 end-0 p-4" style="z-index:1040">
+<button aria-label="Open shopping bag" class="cart-floating-button" id="go-to-cart" type="button">
+<i class="fa-solid fa-bag-shopping fa-lg"></i>
+<span class="cart-count" id="cart-count">0</span>
+</button>
+</div>
+<div aria-hidden="true" aria-labelledby="cartModalLabel" class="modal fade" id="cartModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<div>
+<p class="small mb-1" style="color:#e2c28c;letter-spacing:2px">
+                        YOUR SELECTION
+                    </p>
+<h2 class="modal-title h4" id="cartModalLabel">Your Shopping Bag</h2>
+</div>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<div id="cart-items"></div>
+</div>
+<div class="modal-footer d-flex flex-column align-items-stretch">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<span class="fw-semibold">Subtotal</span>
+<span class="h5 mb-0" id="cart-total">PKR 0.00</span>
+</div>
+<div class="d-flex flex-wrap justify-content-between gap-2">
+<button class="cart-outline" id="clear-cart" type="button">
+<i class="fa-regular fa-trash-can me-1"></i> Clear Bag
+                    </button>
+<div class="d-flex gap-2">
+<button class="cart-outline" data-bs-dismiss="modal" type="button">Continue Shopping</button>
+<button class="cart-checkout" id="checkout-btn" type="button">
+                            Checkout <i class="fa-solid fa-arrow-right ms-1"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container py-5">
+<div class="row g-5">
+<div class="col-lg-5 col-md-6">
+<div class="footer-top-line"></div>
+<a class="footer-brand" href="index.html">Culina Luxe</a>
+<p class="footer-description">
+                    Thoughtfully selected essentials for a more beautiful kitchen.
+                    Discover practical pieces that bring style, comfort and quality
+                    to your everyday rituals.
+                </p>
+<div class="social-icons mt-4">
+<a aria-label="Facebook" href="https://www.facebook.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-facebook"></i>
+</a>
+<a aria-label="Instagram" href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-instagram"></i>
+</a>
+<a aria-label="Pinterest" href="https://www.pinterest.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-pinterest"></i>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-youtube"></i>
+</a>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div class="footer-top-line"></div>
+<h5 class="footer-title">Explore</h5>
+<ul class="footer-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">Our Story</a></li>
+<li><a href="product.html">All Products</a></li>
+<li><a href="Cookware.html">Cookware</a></li>
+<li><a href="Refrigeration.html">Refrigeration</a></li>
+<li><a href="Appliances.html">Appliances</a></li>
+<li><a href="dining.html">Dining</a></li>
+</ul>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="footer-top-line"></div>
+<h5 class="footer-title">Customer Care</h5>
+<ul class="footer-links">
+<li>
+<a href="contact.html">
+<i class="fa-regular fa-envelope me-2"></i>Contact Us
+                        </a>
+</li>
+<li>
+<a href="register.html">
+<i class="fa-regular fa-user me-2"></i>Create Account
+                        </a>
+</li>
+<li>
+<a href="checkout.html">
+<i class="fa-solid fa-bag-shopping me-2"></i>Shopping Bag
+                        </a>
+</li>
+</ul>
+<p class="footer-social-text mt-4 mb-0">
+<i class="fa-solid fa-star me-2" style="color:#e0bf82"></i>
+                    Designed for everyday living.
+                </p>
+</div>
+</div>
+</div>
+<div class="footer-bottom text-center">
+<div class="container d-flex flex-wrap justify-content-center align-items-center gap-2">
+<i class="fa-solid fa-utensils"></i>
+<span>© <span id="current-year"></span> Culina Luxe.</span>
+<span>Crafted for the art of living.</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const products = [
+        { id: 58, name: "Oreo Dining Table", price: 79.99, image: "images/cate-58.webp" },
+        { id: 59, name: "Chanchal Dining Table", price: 129.99, image: "images/cate-59.webp" },
+        { id: 60, name: "Hera Dining Table", price: 49.99, image: "images/cate-60.webp" }
+    ];
+
+    const productList = document.getElementById("product-list");
+    const searchInput = document.getElementById("nav-search");
+    const searchForm = document.getElementById("nav-search-form");
+    const productCount = document.getElementById("product-count");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const cartCount = document.getElementById("cart-count");
+
+    let cart = [];
+
+    const formatPKR = amount => "PKR " + amount.toLocaleString("en-PK", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+    /*
+     * The same sessionStorage cart is used on category pages.
+     * Only dining product IDs are loaded into this page's cart view.
+     */
+    try {
+        const savedCart = JSON.parse(sessionStorage.getItem("cart") || "[]");
+
+        if (Array.isArray(savedCart)) {
+            cart = savedCart
+                .filter(item =>
+                    products.some(p => p.id === Number(item.id)) &&
+                    Number.isInteger(Number(item.quantity)) &&
+                    Number(item.quantity) > 0
+                )
+                .map(item => ({
+                    ...products.find(p => p.id === Number(item.id)),
+                    quantity: Number(item.quantity)
+                }));
+        }
+    } catch (error) {
+        cart = [];
+    }
+
+    function displayProducts() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(query)
+        );
+
+        productCount.textContent =
+            filteredProducts.length +
+            (filteredProducts.length === 1 ? " product" : " products");
+
+        if (filteredProducts.length === 0) {
+            productList.innerHTML = `
+                <div class="col-12">
+                    <div class="empty-products">
+                        <i class="fa-solid fa-magnifying-glass fa-2x mb-3"></i>
+                        <h3 class="h5">No products found</h3>
+                        <p>Try another product name.</p>
+                        <button type="button" class="btn-luxe" id="reset-search">
+                            Show All Products
+                        </button>
+                    </div>
+                </div>`;
+            return;
+        }
+
+        productList.innerHTML = filteredProducts.map(product => `
+            <div class="col">
+                <article class="product-grid-card">
+                    <div class="product-image-wrap">
+                        <img src="${product.image}"
+                             alt="${product.name}"
+                             loading="lazy"
+                             onerror="this.onerror=null;this.src='images/logo.png';">
+                    </div>
+
+                    <div class="card-body">
+                        <p class="product-category mb-2">Dining & Tableware</p>
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="product-price">${formatPKR(product.price)}</p>
+
+                        <button type="button" class="btn add-to-cart" data-id="${product.id}">
+                            <i class="fa-solid fa-bag-shopping me-2"></i>
+                            Add to Bag
+                        </button>
+                    </div>
+                </article>
+            </div>
+        `).join("");
+    }
+
+    function saveCart() {
+        /*
+         * Keep other category products already in sessionStorage.
+         * Replace only dining entries with the current dining cart.
+         */
+        let allCartItems = [];
+
+        try {
+            const saved = JSON.parse(sessionStorage.getItem("cart") || "[]");
+            if (Array.isArray(saved)) {
+                allCartItems = saved.filter(item =>
+                    !products.some(p => p.id === Number(item.id))
+                );
+            }
+        } catch (error) {
+            allCartItems = [];
+        }
+
+        sessionStorage.setItem(
+            "cart",
+            JSON.stringify([...allCartItems, ...cart])
+        );
+    }
+
+    function updateCart() {
+        const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        cartCount.textContent = quantity;
+        cartTotal.textContent = formatPKR(total);
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="text-center py-4">
+                    <i class="fa-solid fa-bag-shopping fa-2x mb-3"></i>
+                    <p class="mb-0">Your shopping bag has no dining products.</p>
+                </div>`;
+        } else {
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="cart-product-row">
+                    <div class="flex-grow-1">
+                        <h3 class="h6 mb-1">${item.name}</h3>
+                        <p class="small mb-0">${formatPKR(item.price)} each</p>
+                    </div>
+
+                    <div class="cart-quantity-controls">
+                        <button type="button"
+                                class="btn btn-sm btn-outline-secondary decrease-quantity"
+                                data-id="${item.id}" aria-label="Decrease quantity">−</button>
+                        <span class="fw-semibold">${item.quantity}</span>
+                        <button type="button"
+                                class="btn btn-sm btn-outline-secondary increase-quantity"
+                                data-id="${item.id}" aria-label="Increase quantity">+</button>
+                    </div>
+
+                    <div class="text-end">
+                        <span class="fw-semibold">${formatPKR(item.price * item.quantity)}</span>
+                        <button type="button"
+                                class="btn btn-sm btn-link text-danger remove-item d-block ms-auto"
+                                data-id="${item.id}">Remove</button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        saveCart();
+    }
+
+    function addToCart(id) {
+        const product = products.find(p => p.id === id);
+        if (!product) return;
+
+        const existing = cart.find(item => item.id === id);
+
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+
+        updateCart();
+    }
+
+    searchInput.addEventListener("input", displayProducts);
+
+    searchForm.addEventListener("submit", event => {
+        event.preventDefault();
+        displayProducts();
+
+        document.getElementById("appliances-products")
+            .scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.addEventListener("click", event => {
+        const addButton = event.target.closest(".add-to-cart");
+
+        if (addButton) {
+            addToCart(Number(addButton.dataset.id));
+            return;
+        }
+
+        if (event.target.closest("#reset-search")) {
+            searchInput.value = "";
+            displayProducts();
+            return;
+        }
+
+        const increase = event.target.closest(".increase-quantity");
+        const decrease = event.target.closest(".decrease-quantity");
+        const remove = event.target.closest(".remove-item");
+
+        if (increase) {
+            const item = cart.find(i => i.id === Number(increase.dataset.id));
+            if (item) item.quantity++;
+            updateCart();
+        }
+
+        if (decrease) {
+            const id = Number(decrease.dataset.id);
+            const item = cart.find(i => i.id === id);
+
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity--;
+                } else {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+
+            updateCart();
+        }
+
+        if (remove) {
+            const id = Number(remove.dataset.id);
+            cart = cart.filter(i => i.id !== id);
+            updateCart();
+        }
+    });
+
+    document.getElementById("go-to-cart").addEventListener("click", () => {
+        bootstrap.Modal.getOrCreateInstance(
+            document.getElementById("cartModal")
+        ).show();
+    });
+
+    document.getElementById("clear-cart").addEventListener("click", () => {
+        if (cart.length === 0) return;
+
+        if (confirm("Are you sure you want to clear your appliance items?")) {
+            cart = [];
+            updateCart();
+        }
+    });
+
+    document.getElementById("checkout-btn").addEventListener("click", () => {
+        if (cart.length === 0) {
+            alert("Your shopping bag has no dining products. Please add a product first.");
+            return;
+        }
+
+        saveCart();
+        window.location.href = "checkout.html";
+    });
+
+    document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+    displayProducts();
+    updateCart();
+</script>
+</body>
+</html>

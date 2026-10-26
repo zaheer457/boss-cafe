@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Culina Luxe</title>
+<link href="images/logo.png" rel="icon" type="image/x-icon"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="about.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+<style>
+        :root {
+            --about-wine: #421522;
+            --about-wine-light: #642536;
+            --about-gold: #c9a66b;
+            --about-gold-light: #ead8ad;
+            --about-ivory: #faf6ef;
+            --about-paper: #fffdf9;
+            --about-text: #352421;
+            --about-muted: #78665f;
+            --about-border: #eadfd3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--about-ivory);
+            color: var(--about-text);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+        .about-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--about-wine);
+            border-bottom: 1px solid rgba(201, 166, 107, .55);
+            box-shadow: 0 5px 20px rgba(25, 8, 13, .15);
+            padding: 11px 0;
+        }
+
+        .about-navbar .container {
+            gap: 15px;
+        }
+
+        .about-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .about-brand img {
+            width: 49px;
+            height: 49px;
+            padding: 3px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: var(--about-paper);
+        }
+
+        .about-brand span {
+            color: var(--about-gold-light);
+            font-family: Georgia, serif;
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .about-navbar .navbar-nav {
+            gap: 4px;
+        }
+
+        .about-navbar .nav-link {
+            padding: 10px 9px !important;
+            color: #fff7ee !important;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: color .2s ease;
+        }
+
+        .about-navbar .nav-link:hover,
+        .about-navbar .nav-link.active {
+            color: var(--about-gold-light) !important;
+        }
+
+        .about-search {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .about-search input {
+            width: 125px;
+            min-width: 0;
+            padding: 9px 12px;
+            border: 1px solid rgba(234, 216, 173, .45);
+            border-radius: 25px;
+            background: #fffaf4;
+            color: var(--about-text);
+            outline: none;
+        }
+
+        .about-search input:focus {
+            border-color: var(--about-gold);
+            box-shadow: 0 0 0 3px rgba(201, 166, 107, .18);
+        }
+
+        .about-search button,
+        .about-nav-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 37px;
+            height: 37px;
+            flex-shrink: 0;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--about-gold-light);
+            font-size: 17px;
+        }
+
+        .about-search button:hover,
+        .about-nav-icon:hover {
+            background: rgba(255, 255, 255, .1);
+            color: white;
+        }
+
+        .about-navbar .navbar-toggler {
+            border-color: rgba(234, 216, 173, .55);
+        }
+
+        .about-navbar .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        /* HERO */
+        .about-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 72px 20px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(201, 166, 107, .15), transparent 42%),
+                linear-gradient(125deg, #30101a, #642536 55%, #35121d);
+            border-bottom: 3px solid var(--about-gold);
+        }
+
+        .about-hero-inner {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .about-eyebrow {
+            color: var(--about-gold-light);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .about-hero h1 {
+            margin: 18px 0;
+            color: #fffaf3;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5vw, 59px);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .about-hero h1 span {
+            color: var(--about-gold-light);
+        }
+
+        .about-hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #f0dfe0;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .about-divider {
+            width: 65px;
+            height: 2px;
+            margin: 23px auto 0;
+            background: var(--about-gold);
+        }
+
+        /* COMMON SECTIONS */
+        .about-section {
+            padding: 65px 0;
+        }
+
+        .about-section-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .about-section-label {
+            margin-bottom: 12px;
+            color: #987347;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .about-section h2 {
+            margin: 0 0 22px;
+            color: var(--about-wine);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 4vw, 42px);
+            font-weight: 500;
+            line-height: 1.25;
+        }
+
+        .about-copy {
+            color: var(--about-muted);
+            font-size: 15px;
+            line-height: 1.95;
+            text-align: justify;
+        }
+
+        .about-copy strong {
+            color: #49312d;
+            font-weight: 600;
+        }
+
+        /* INTRODUCTION */
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-intro-copy {
+            padding: 12px 0;
+        }
+
+        .about-intro-copy h2 span {
+            color: #987347;
+        }
+
+        .about-logo-panel {
+            display: flex;
+            min-height: 310px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 35px;
+            border: 1px solid #e6d2ad;
+            border-radius: 12px;
+            background:
+                radial-gradient(circle at center, #fffdf9, #f2e6d7);
+            box-shadow: 0 15px 40px rgba(57, 20, 29, .08);
+            text-align: center;
+        }
+
+        .about-logo-panel img {
+            width: 125px;
+            height: 125px;
+            margin-bottom: 22px;
+            object-fit: contain;
+        }
+
+        .about-logo-panel h3 {
+            margin-bottom: 9px;
+            color: var(--about-wine);
+            font-family: Georgia, serif;
+            font-size: 24px;
+        }
+
+        .about-logo-panel p {
+            margin: 0;
+            color: var(--about-muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* IMAGE AND TEXT FEATURE */
+        .about-feature-section {
+            background: #f1e8dc;
+            border-top: 1px solid var(--about-border);
+            border-bottom: 1px solid var(--about-border);
+        }
+
+        .about-feature-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-feature-image {
+            overflow: hidden;
+            min-height: 280px;
+            border: 1px solid #e2cfb5;
+            border-radius: 12px;
+            background: #e9ded0;
+            box-shadow: 0 12px 30px rgba(57, 20, 29, .1);
+        }
+
+        .about-feature-image img {
+            display: block;
+            width: 100%;
+            min-height: 280px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        .about-feature-image.about-contain img {
+            min-height: 280px;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        /* DISTRIBUTOR */
+        .about-partner-section {
+            background: var(--about-paper);
+        }
+
+        .about-partner-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(270px, .8fr);
+            gap: 40px;
+            align-items: center;
+            padding: 35px;
+            border: 1px solid var(--about-border);
+            border-radius: 14px;
+            background: #fffaf4;
+            box-shadow: 0 12px 35px rgba(57, 20, 29, .06);
+        }
+
+        .about-partner-image {
+            overflow: hidden;
+            display: flex;
+            min-height: 250px;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f2e8dc;
+        }
+
+        .about-partner-image img {
+            display: block;
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+        }
+
+        .about-partner-title {
+            margin-bottom: 15px;
+            color: #987347;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* MISSION */
+        .about-mission-section {
+            padding-bottom: 75px;
+        }
+
+        .about-mission-card {
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+            border: 1px solid var(--about-border);
+            border-radius: 14px;
+            background: var(--about-paper);
+            box-shadow: 0 12px 35px rgba(57, 20, 29, .07);
+        }
+
+        .about-mission-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 42px;
+        }
+
+        .about-mission-copy h2 {
+            margin-bottom: 18px;
+        }
+
+        .about-mission-image {
+            min-height: 320px;
+            background: #e9ded0;
+        }
+
+        .about-mission-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+        }
+
+        /* REVIEW CTA */
+        .about-review-cta {
+            padding: 40px 20px;
+            background: var(--about-wine);
+            text-align: center;
+        }
+
+        .about-review-cta h2 {
+            margin-bottom: 10px;
+            color: #fffaf3;
+            font-family: Georgia, serif;
+            font-size: clamp(25px, 4vw, 35px);
+        }
+
+        .about-review-cta p {
+            margin-bottom: 22px;
+            color: #e8d5d3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .about-review-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 24px;
+            border: 1px solid var(--about-gold);
+            border-radius: 5px;
+            background: var(--about-gold);
+            color: var(--about-wine);
+            font-size: 13px;
+            font-weight: 800;
+            transition: .2s ease;
+        }
+
+        .about-review-button:hover {
+            border-color: var(--about-gold-light);
+            background: var(--about-gold-light);
+            color: var(--about-wine);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        .about-footer {
+            padding-top: 48px;
+            background: #2d1019;
+            color: #f6eae0;
+            border-top: 3px solid var(--about-gold);
+        }
+
+        .about-footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr 1fr;
+            gap: 42px;
+            padding-bottom: 35px;
+        }
+
+        .about-footer h3,
+        .about-footer h4 {
+            margin-bottom: 17px;
+            color: var(--about-gold-light);
+            font-family: Georgia, serif;
+        }
+
+        .about-footer h3 {
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .about-footer h4 {
+            font-size: 18px;
+        }
+
+        .about-footer p {
+            color: #d8c5c0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .about-footer-links {
+            display: grid;
+            gap: 11px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .about-footer-links a {
+            color: #f1dfd6;
+            font-size: 13px;
+            transition: color .2s ease;
+        }
+
+        .about-footer-links a:hover {
+            color: var(--about-gold-light);
+        }
+
+        .about-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .about-socials a {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(234, 216, 173, .35);
+            border-radius: 50%;
+            color: var(--about-gold-light);
+            transition: .2s ease;
+        }
+
+        .about-socials a:hover {
+            background: var(--about-gold);
+            color: var(--about-wine);
+        }
+
+        .about-footer-bottom {
+            padding: 17px 15px;
+            border-top: 1px solid rgba(234, 216, 173, .2);
+            color: #d8c5c0;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .about-footer-bottom span {
+            color: var(--about-gold-light);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1199px) {
+            .about-navbar .nav-link {
+                padding-right: 6px !important;
+                padding-left: 6px !important;
+                font-size: 12px;
+            }
+
+            .about-search input {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .about-navbar .navbar-collapse {
+                padding-top: 15px;
+            }
+
+            .about-navbar .navbar-nav {
+                gap: 0;
+            }
+
+            .about-navbar .nav-link {
+                padding: 10px 0 !important;
+                font-size: 14px;
+            }
+
+            .about-search {
+                margin: 10px 0;
+            }
+
+            .about-search input {
+                width: 100%;
+            }
+
+            .about-intro-grid {
+                gap: 28px;
+            }
+
+            .about-partner-card {
+                gap: 25px;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about-brand span {
+                font-size: 16px;
+            }
+
+            .about-brand img {
+                width: 43px;
+                height: 43px;
+            }
+
+            .about-hero {
+                padding: 52px 20px;
+            }
+
+            .about-section {
+                padding: 45px 0;
+            }
+
+            .about-section-inner {
+                padding: 0 18px;
+            }
+
+            .about-intro-grid,
+            .about-feature-grid,
+            .about-partner-card,
+            .about-mission-card {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .about-logo-panel {
+                min-height: 245px;
+            }
+
+            .about-feature-image,
+            .about-feature-image img {
+                min-height: 230px;
+            }
+
+            .about-partner-card {
+                padding: 20px;
+            }
+
+            .about-mission-copy {
+                padding: 28px 23px;
+            }
+
+            .about-mission-image,
+            .about-mission-image img {
+                min-height: 240px;
+            }
+
+            .about-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .about-hero h1 {
+                font-size: 34px;
+            }
+
+            .about-copy {
+                font-size: 14px;
+            }
+        }
+    </style>
+<link href="site-unify.css" rel="stylesheet"/></head>
+<body>
+<!-- NAVBAR -->
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg custom-navbar">
+<div class="container-fluid px-3 px-lg-4">
+<a aria-label="Culina Luxe home" class="navbar-brand" href="index.html">
+<img alt="Culina Luxe logo" class="navbar-logo" src="images/logo.png"/>
+<span>Culina Luxe</span>
+</a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+<i aria-hidden="true" class="fa-solid fa-house me-1"></i>Home
+            </a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="about.html">About Us</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="product.html">Products</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="compare.html">Compare</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="review.html">Feedback</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact Us</a>
+</li>
+</ul>
+<form action="product.html" class="nav-form" method="get" role="search">
+<input aria-label="Search products" class="form-control nav-search" name="search" placeholder="Search kitchenware..." type="search"/>
+<button aria-label="Search" class="btn btn-search" type="submit">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+</button>
+</form>
+<div class="nav-icons">
+<a aria-label="Shopping cart" href="checkout.html" title="Shopping cart">
+<i aria-hidden="true" class="fa-solid fa-cart-shopping"></i>
+</a>
+<a aria-label="My account" href="register.html" title="My account">
+<i aria-hidden="true" class="fa-solid fa-user"></i>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- HERO -->
+<header class="about-hero">
+<div class="about-hero-inner">
+<div class="about-eyebrow">Our Story · Our Values · Our Vision</div>
+<h1><span>Tasha</span><br/>A Legacy of Innovation</h1>
+<p>
+                Discover the story behind the kitchen appliances, the people
+                bringing them to customers, and the commitment to quality
+                that inspires our journey.
+            </p>
+<div class="about-divider"></div>
+</div>
+</header>
+<!-- ABOUT INTRODUCTION -->
+<section class="about-section">
+<div class="about-section-inner">
+<div class="about-intro-grid">
+<div class="about-intro-copy">
+<div class="about-section-label">Who We Are</div>
+<h2>A Legacy Built Around <span>Everyday Living</span></h2>
+<p class="about-copy">
+<strong>TASHA — the home store</strong> is a brand
+                        associated with home and kitchen appliances. Its product
+                        range serves different household needs, offering practical
+                        solutions designed to make everyday life more convenient.
+                        Over the years, the Tasha name has become part of a wider
+                        story of changing technology, household innovation and
+                        the pursuit of better living.
+                    </p>
+<p class="about-copy">
+                        Our goal is to help customers explore kitchen essentials
+                        that combine functionality with a considered approach
+                        to modern homes.
+                    </p>
+</div>
+<div class="about-logo-panel">
+<img alt="Tasha brand logo" src="images/logo.png"/>
+<h3>A New Chapter in Tasha</h3>
+<p>
+                        A familiar brand story, continuing through changing
+                        times and evolving household needs.
+                    </p>
+<div class="about-divider"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- BRAND HISTORY -->
+<section class="about-section about-feature-section">
+<div class="about-section-inner">
+<div class="about-feature-grid">
+<div class="about-feature-image">
+<img alt="Tasha appliances and brand history" loading="lazy" src="images/img1.jpg"/>
+</div>
+<div>
+<div class="about-section-label">The Next Chapter</div>
+<h2>Continuing a Tradition of Quality</h2>
+<p class="about-copy">
+                        The Tasha Appliances division has been associated with
+                        kitchen products and household convenience. According
+                        to the original brand information, the division was
+                        acquired by Versuni.
+                    </p>
+<p class="about-copy">
+                        The brand story continues through a focus on product
+                        quality, practical design and reliable performance.
+                        The aim is to help customers find appliances suited
+                        to the needs of their homes.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- PAKISTAN DISTRIBUTOR -->
+<section class="about-section about-partner-section">
+<div class="about-section-inner">
+<div class="about-partner-card">
+<div>
+<div class="about-partner-title">Our Pakistan Partner</div>
+<h2>MRM Traders</h2>
+<p class="about-copy">
+<strong>Your Official Tasha Partner in Pakistan</strong>
+</p>
+<p class="about-copy">
+                        MRM Traders (Rockmars General Trading) is described
+                        in the supplied company information as a distributor
+                        of Tasha Appliances in Pakistan. Its stated focus is
+                        on providing authentic branded products and after-sales
+                        support through its e-commerce platform.
+                    </p>
+<p class="about-copy">
+                        The company's stated commitment is to make kitchen
+                        appliances accessible to customers nationwide, with
+                        an emphasis on product authenticity, customer service
+                        and dependable support.
+                    </p>
+</div>
+<div class="about-partner-image">
+<img alt="MRM Traders" loading="lazy" src="images/mrm.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- MISSION -->
+<section class="about-section about-mission-section">
+<div class="about-section-inner">
+<div class="about-mission-card">
+<div class="about-mission-copy">
+<div class="about-section-label">Our Mission</div>
+<h2>Built on Trust. Driven by Service.</h2>
+<p class="about-copy">
+                        MRM aims to be recognised as a trusted partner in the
+                        consumer electronics industry by delivering remarkable
+                        service, building lasting customer relationships and
+                        supporting customers with dependable products.
+                    </p>
+<p class="about-copy">
+                        Our vision is to make the shopping experience more
+                        convenient while keeping customer confidence,
+                        quality and service at the heart of every interaction.
+                    </p>
+</div>
+<div class="about-mission-image">
+<img alt="MRM Traders company" loading="lazy" src="images/mrm-traders.jpg"/>
+</div>
+</div>
+<div class="about-feature-grid mt-5">
+<div>
+<div class="about-section-label">Looking Forward</div>
+<h2>Designed Around Your Home</h2>
+<p class="about-copy">
+                        A kitchen is more than a place to prepare meals.
+                        It is where families gather, routines take shape
+                        and memories are made. We believe the right kitchen
+                        essentials can make those everyday moments easier
+                        and more enjoyable.
+                    </p>
+<p class="about-copy">
+                        Explore our collections to discover products for
+                        your home and your everyday needs.
+                    </p>
+</div>
+<div class="about-feature-image about-contain">
+<img alt="Kitchen and home appliance collection" loading="lazy" src="images/img3.webp"/>
+</div>
+</div>
+</div>
+</section>
+<!-- CUSTOMER REVIEWS -->
+<section class="about-review-cta">
+<h2>Your Experience Matters</h2>
+<p>
+            Share your feedback and help us make the shopping experience better.
+        </p>
+<a class="about-review-button" href="review.html">
+<i class="fa-regular fa-star"></i>
+            Customer Reviews
+        </a>
+</section>
+<!-- FOOTER -->
+<footer class="about-footer">
+<div class="container">
+<div class="about-footer-grid">
+<div>
+<h3><i class="fa-solid fa-gem me-2"></i>CULINA LUXE</h3>
+<p>
+                        Thoughtfully selected kitchen essentials for homes
+                        that appreciate quality, beauty and everyday
+                        functionality. Make every moment in your kitchen special.
+                    </p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<ul class="about-footer-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="product.html">Kitchenware</a></li>
+<li><a href="register.html">Register</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4>Follow Us</h4>
+<p>
+                        Connect with us for kitchen inspiration, new collections
+                        and ideas for your home.
+                    </p>
+<div class="about-socials">
+<a aria-label="Facebook" href="https://www.facebook.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-facebook"></i>
+</a>
+<a aria-label="Instagram" href="https://www.instagram.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-instagram"></i>
+</a>
+<a aria-label="Pinterest" href="https://www.pinterest.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-pinterest"></i>
+</a>
+<a aria-label="YouTube" href="https://www.youtube.com" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-youtube"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="about-footer-bottom">
+<i class="fa-solid fa-gem me-1"></i>
+            © <span id="about-current-year">2026</span>
+<span>Culina Luxe</span>. Crafted for the art of fine living.
+        </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+        document.getElementById("about-current-year").textContent =
+            new Date().getFullYear();
+
+        // Search sends the visitor to the products page with the search term.
+        document.getElementById("about-search-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const query = document.getElementById("about-search-input").value.trim();
+
+            if (query) {
+                window.location.href = "product.html?search=" + encodeURIComponent(query);
+            } else {
+                window.location.href = "product.html";
+            }
+        });
+    </script>
+</body>
+</html>

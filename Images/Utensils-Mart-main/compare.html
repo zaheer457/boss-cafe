@@ -1,0 +1,1259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#38111d">
+  <title>Compare Products | Culina Luxe</title>
+
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #38111d;
+      --wine-light: #641f32;
+      --gold: #c6a46a;
+      --gold-light: #ead8ad;
+      --cream: #faf7f2;
+      --white: #fffdf9;
+      --ink: #30252a;
+      --muted: #82747a;
+      --border: #e8ded5;
+      --shadow: 0 12px 35px rgba(56,17,29,.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { text-decoration: none; }
+
+    /* Announcement bar */
+    .announcement {
+      padding: 9px 15px;
+      background: #260a13;
+      color: var(--gold-light);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    /* Complete navbar */
+    .custom-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      width: 100%;
+      padding: 12px 0;
+      background: var(--wine);
+      border-bottom: 1px solid rgba(198,164,106,.5);
+      box-shadow: 0 5px 20px rgba(38,10,19,.15);
+    }
+
+    .custom-navbar .container-fluid {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .custom-navbar .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      color: var(--gold-light);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      white-space: nowrap;
+    }
+
+    .navbar-logo {
+      display: block;
+      width: 45px;
+      height: 45px;
+      padding: 3px;
+      object-fit: contain;
+      background: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .custom-navbar .navbar-collapse {
+      align-items: center;
+      min-width: 0;
+    }
+
+    .custom-navbar .navbar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .custom-navbar .nav-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 11px !important;
+      border-radius: 7px;
+      color: #fff !important;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .custom-navbar .nav-link:hover,
+    .custom-navbar .nav-link.active {
+      color: var(--gold-light) !important;
+      background: rgba(255,255,255,.09);
+    }
+
+    .custom-navbar .nav-form {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: 0 1 210px;
+      width: 210px;
+      min-width: 155px;
+      margin: 0 0 0 5px;
+    }
+
+    .custom-navbar .nav-search {
+      width: 100%;
+      height: 40px;
+      padding: 8px 43px 8px 14px;
+      border: 1px solid rgba(198,164,106,.8);
+      border-radius: 50px;
+      outline: none;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 12px;
+      box-shadow: none;
+    }
+
+    .custom-navbar .nav-search:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(198,164,106,.2);
+    }
+
+    .custom-navbar .btn-search {
+      position: absolute;
+      top: 50%;
+      right: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      padding: 0;
+      transform: translateY(-50%);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--wine);
+      font-size: 13px;
+      line-height: 1;
+      transition: background .2s ease;
+    }
+
+    .custom-navbar .btn-search:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .custom-navbar .nav-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      gap: 8px;
+      margin-left: 5px;
+    }
+
+    .custom-navbar .nav-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(234,216,173,.65);
+      border-radius: 50%;
+      color: #fff !important;
+      font-size: 14px;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .custom-navbar .nav-icons a:hover {
+      background: var(--gold);
+      color: var(--wine) !important;
+    }
+
+    .custom-navbar .navbar-toggler {
+      padding: 7px 10px;
+      border: 1px solid var(--gold);
+      box-shadow: none !important;
+    }
+
+    .custom-navbar .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 75px 0 80px;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(198,164,106,.2), transparent 30%),
+        linear-gradient(120deg, #260a13, var(--wine) 65%, #713047);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -65px;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(234,216,173,.2);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 15px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(36px, 5vw, 57px);
+      line-height: 1.2;
+    }
+
+    .hero h1 span { color: var(--gold-light); font-style: italic; }
+
+    .hero p {
+      max-width: 550px;
+      margin: 0;
+      color: #e7dce0;
+      font-size: 14px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-line {
+      padding: 13px 0;
+      background: #f2ebdf;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .breadcrumb-line a { color: var(--muted); }
+    .breadcrumb-line a:hover,
+    .breadcrumb-line .current { color: var(--wine-light); }
+    .breadcrumb-line .current { font-weight: 700; }
+
+    /* Comparison area */
+    .compare-section { padding: 60px 0 75px; }
+
+    .section-heading {
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .mini-title {
+      color: var(--wine-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 9px 0 12px;
+      color: var(--wine);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(29px, 4vw, 40px);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .selection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-select-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .select-card-top {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(120deg, #fffdf9, #f4ecdf);
+    }
+
+    .select-number {
+      display: grid;
+      flex: 0 0 39px;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--wine);
+      color: var(--gold-light);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 17px;
+    }
+
+    .select-card-top h3 {
+      margin: 0;
+      color: var(--wine);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+    }
+
+    .select-card-top small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .select-card-body { padding: 22px; }
+
+    .select-card-body label {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-select {
+      min-height: 46px;
+      border-color: var(--border);
+      border-radius: 7px;
+      background-color: var(--white);
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .form-select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(198,164,106,.16);
+    }
+
+    .product-preview {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 105px;
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--cream);
+    }
+
+    .preview-icon {
+      display: grid;
+      flex: 0 0 55px;
+      width: 55px;
+      height: 55px;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--wine);
+      color: var(--gold-light);
+      font-size: 23px;
+    }
+
+    .preview-name {
+      margin: 0 0 4px;
+      color: var(--wine);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .preview-category {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .compare-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 55px;
+    }
+
+    .btn-luxe {
+      min-height: 44px;
+      padding: 11px 23px;
+      border: 1px solid var(--wine);
+      border-radius: 6px;
+      background: var(--wine);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .btn-luxe:hover {
+      background: var(--wine-light);
+      color: white;
+    }
+
+    .btn-luxe-outline {
+      background: transparent;
+      color: var(--wine);
+    }
+
+    .btn-luxe-outline:hover {
+      background: var(--wine);
+      color: white;
+    }
+
+    /* Comparison table */
+    .comparison-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+
+    .comparison-heading h3 {
+      margin: 0 0 5px;
+      color: var(--wine);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 25px;
+    }
+
+    .comparison-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .table-tag {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: white;
+      color: var(--wine-light);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .comparison-shell {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table {
+      width: 100%;
+      margin: 0;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 17px 20px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+      font-size: 13px;
+    }
+
+    .comparison-table thead th {
+      background: var(--wine);
+      color: var(--gold-light);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 15px;
+    }
+
+    .comparison-table thead th:first-child { width: 25%; }
+
+    .comparison-table tbody th {
+      width: 25%;
+      background: #fbf7f0;
+      color: var(--wine);
+      font-weight: 700;
+    }
+
+    .comparison-table tbody td { color: var(--ink); }
+
+    .comparison-table tr:last-child th,
+    .comparison-table tr:last-child td { border-bottom: 0; }
+
+    .row-icon {
+      width: 20px;
+      margin-right: 7px;
+      color: var(--gold);
+    }
+
+    .price-value {
+      color: var(--wine) !important;
+      font-weight: 700;
+    }
+
+    .comparison-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #f5eee3;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .comparison-note i {
+      margin-top: 3px;
+      color: var(--wine-light);
+    }
+
+    /* Benefits */
+    .benefits {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #f5eee3;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 100%;
+      padding: 15px;
+      border: 1px solid rgba(232,222,213,.9);
+      border-radius: 9px;
+      background: rgba(255,255,255,.7);
+    }
+
+    .benefit-icon {
+      display: grid;
+      flex: 0 0 43px;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--wine);
+      color: var(--gold-light);
+    }
+
+    .benefit-item h4 {
+      margin: 0 0 4px;
+      color: var(--wine);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 15px;
+    }
+
+    .benefit-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 55px 0 0;
+      background: #260a13;
+      color: #e7dce0;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-light);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .footer-brand:hover { color: white; }
+
+    .footer-description {
+      max-width: 330px;
+      margin-top: 16px;
+      color: #c8b7bd;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer-heading {
+      margin-bottom: 17px;
+      color: var(--gold-light);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 17px;
+    }
+
+    .footer-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links li { margin-bottom: 9px; }
+
+    .footer-links a {
+      color: #d7c9ce;
+      font-size: 12px;
+      transition: color .2s ease;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #d7c9ce;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-contact i { color: var(--gold); }
+
+    .social-links {
+      display: flex;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border: 1px solid rgba(234,216,173,.35);
+      border-radius: 50%;
+      color: var(--gold-light);
+      transition: background .2s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--wine-light);
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: #c8b7bd;
+      font-size: 11px;
+    }
+
+    .footer-bottom span { color: var(--gold-light); }
+
+    /* Responsive */
+    @media (max-width: 1199.98px) and (min-width: 992px) {
+      .custom-navbar .container-fluid { gap: 10px; }
+      .custom-navbar .navbar-brand { gap: 7px; font-size: 19px; }
+      .navbar-logo { width: 39px; height: 39px; }
+      .custom-navbar .nav-link { padding: 9px 7px !important; font-size: 11px; }
+      .custom-navbar .nav-form { flex-basis: 165px; min-width: 145px; }
+      .custom-navbar .nav-icons { gap: 5px; }
+      .custom-navbar .nav-icons a { width: 34px; height: 34px; }
+    }
+
+    @media (max-width: 991.98px) {
+      .custom-navbar .container-fluid { flex-wrap: wrap; }
+      .custom-navbar .navbar-toggler { margin-left: auto; }
+      .custom-navbar .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+        padding-top: 14px;
+      }
+      .custom-navbar .navbar-nav {
+        align-items: stretch;
+        gap: 3px;
+        margin: 0;
+      }
+      .custom-navbar .nav-link {
+        justify-content: flex-start;
+        padding: 10px 12px !important;
+        font-size: 13px;
+      }
+      .custom-navbar .nav-form {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 12px 0 5px;
+      }
+      .custom-navbar .nav-search { height: 43px; }
+      .custom-navbar .btn-search { width: 37px; height: 37px; }
+      .custom-navbar .nav-icons {
+        justify-content: flex-start;
+        margin: 10px 0 2px;
+      }
+      .hero { padding: 55px 0; }
+      .compare-section { padding: 45px 0 55px; }
+    }
+
+    @media (max-width: 767.98px) {
+      .announcement { font-size: 9px; letter-spacing: 1px; }
+      .selection-grid { grid-template-columns: 1fr; gap: 16px; }
+      .comparison-heading { align-items: flex-start; }
+      .comparison-table th,
+      .comparison-table td { padding: 13px 12px; font-size: 11px; }
+      .comparison-table thead th { font-size: 12px; }
+      .comparison-table thead th:first-child,
+      .comparison-table tbody th { width: 30%; }
+      .benefit-item { padding: 12px; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 420px) {
+      .custom-navbar .navbar-brand { gap: 7px; font-size: 19px; }
+      .navbar-logo { width: 39px; height: 39px; }
+      .hero h1 { font-size: 34px; }
+      .compare-actions { flex-direction: column; }
+      .compare-actions .btn-luxe { width: 100%; }
+      .comparison-table th,
+      .comparison-table td { padding: 11px 8px; font-size: 10px; }
+      .row-icon { width: 15px; margin-right: 3px; }
+    }
+  </style>
+</head>
+
+<body>
+  
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar" aria-label="Main navigation">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand" href="index.html" aria-label="Culina Luxe home">
+        <img class="navbar-logo" src="images/logo.png" alt="Culina Luxe logo">
+        <span>Culina Luxe</span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="compare.html">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="review.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <form class="nav-form" action="product.html" method="get" role="search">
+          <input class="form-control nav-search" type="search"
+            name="search" placeholder="Search kitchenware..."
+            aria-label="Search products">
+          <button class="btn btn-search" type="submit" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <div class="nav-icons">
+          <a href="checkout.html" aria-label="Shopping cart" title="Shopping cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a href="register.html" aria-label="My account" title="My account">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">A more considered choice</div>
+      <h1>Compare with <span>Confidence.</span></h1>
+      <p>Explore the details, compare the essentials, and find the kitchen companion that fits your lifestyle beautifully.</p>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-line">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <span class="mx-2">/</span>
+      <span class="current">Compare Products</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="compare-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="mini-title">Find your perfect match</div>
+          <h2>Compare Your Essentials</h2>
+          <p>Select two products to explore their features side by side.</p>
+        </div>
+
+        <div class="selection-grid">
+          <div class="product-select-card">
+            <div class="select-card-top">
+              <div class="select-number">01</div>
+              <div>
+                <h3>First Product</h3>
+                <small>Choose your first option</small>
+              </div>
+            </div>
+            <div class="select-card-body">
+              <label for="productOne">Select a product</label>
+              <select class="form-select" id="productOne">
+                <option value="cookware">Premium Cookware Set</option>
+                <option value="knife">Professional Knife Set</option>
+                <option value="blender">Pro Blender</option>
+                <option value="kettle">Electric Kettle</option>
+              </select>
+              <div class="product-preview">
+                <div class="preview-icon" id="previewIconOne">
+                  <i class="fa-solid fa-kitchen-set"></i>
+                </div>
+                <div>
+                  <div class="preview-name" id="previewNameOne">Premium Cookware Set</div>
+                  <div class="preview-category" id="previewCategoryOne">Cookware</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-select-card">
+            <div class="select-card-top">
+              <div class="select-number">02</div>
+              <div>
+                <h3>Second Product</h3>
+                <small>Choose another option</small>
+              </div>
+            </div>
+            <div class="select-card-body">
+              <label for="productTwo">Select a product</label>
+              <select class="form-select" id="productTwo">
+                <option value="cookware">Premium Cookware Set</option>
+                <option value="knife" selected>Professional Knife Set</option>
+                <option value="blender">Pro Blender</option>
+                <option value="kettle">Electric Kettle</option>
+              </select>
+              <div class="product-preview">
+                <div class="preview-icon" id="previewIconTwo">
+                  <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div>
+                  <div class="preview-name" id="previewNameTwo">Professional Knife Set</div>
+                  <div class="preview-category" id="previewCategoryTwo">Kitchen Tools</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-actions">
+          <button class="btn-luxe" id="compareButton" type="button">
+            <i class="fa-solid fa-scale-balanced me-2"></i>Compare Products
+          </button>
+          <button class="btn-luxe btn-luxe-outline" id="swapButton" type="button">
+            <i class="fa-solid fa-right-left me-2"></i>Swap Products
+          </button>
+          <button class="btn-luxe btn-luxe-outline" id="resetButton" type="button">
+            <i class="fa-solid fa-rotate-left me-2"></i>Reset
+          </button>
+        </div>
+
+        <div class="comparison-heading">
+          <div>
+            <h3>Your Comparison</h3>
+            <p>Everything you need to know, in one place.</p>
+          </div>
+          <div class="table-tag">
+            <i class="fa-solid fa-check-circle me-1"></i>
+            Side-by-side details
+          </div>
+        </div>
+
+        <div class="comparison-shell" id="comparisonTable">
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Product Details</th>
+                  <th id="headingOne" scope="col">Premium Cookware Set</th>
+                  <th id="headingTwo" scope="col">Professional Knife Set</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-tag row-icon"></i>Name</th>
+                  <td id="nameOne"></td>
+                  <td id="nameTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-layer-group row-icon"></i>Type</th>
+                  <td id="typeOne"></td>
+                  <td id="typeTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-coins row-icon"></i>Price</th>
+                  <td class="price-value" id="priceOne"></td>
+                  <td class="price-value" id="priceTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-gem row-icon"></i>Material</th>
+                  <td id="materialOne"></td>
+                  <td id="materialTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-shield-halved row-icon"></i>Warranty</th>
+                  <td id="warrantyOne"></td>
+                  <td id="warrantyTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-kitchen-set row-icon"></i>Best For</th>
+                  <td id="bestOne"></td>
+                  <td id="bestTwo"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="fa-solid fa-star row-icon"></i>Key Feature</th>
+                  <td id="featureOne"></td>
+                  <td id="featureTwo"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="comparison-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <div>
+            <strong>Product information:</strong>
+            Names, prices and specifications shown here are sample data.
+            Update them with your actual product catalogue before publishing.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-gem"></i></div>
+              <div>
+                <h4>Thoughtful Quality</h4>
+                <p>Designed around everyday living.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-heart"></i></div>
+              <div>
+                <h4>Made for Your Home</h4>
+                <p>Details that make a difference.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div>
+                <h4>Confident Choices</h4>
+                <p>Compare before you choose.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="footer-brand" href="index.html">
+            <i class="fa-solid fa-utensils"></i>
+            CULINA LUXE
+          </a>
+          <p class="footer-description">
+            A considered collection of kitchen essentials, where timeless design
+            meets the joy of everyday cooking.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="Appliances.html">Appliances</a></li>
+            <li><a href="Refrigeration.html">Refrigeration</a></li>
+            <li><a href="compare.html">Compare Products</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="review.html">Feedback</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="checkout.html">Shopping Cart</a></li>
+            <li><a href="register.html">My Account</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h4 class="footer-heading">Get in Touch</h4>
+          <div class="footer-contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contact us through our website.</span>
+          </div>
+          <div class="footer-contact">
+            <i class="fa-solid fa-truck"></i>
+            <span>Delivery details confirmed at checkout.</span>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="currentYear"></span> Culina Luxe. All rights reserved.</div>
+        <div>Designed with care for <span>beautiful kitchens.</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    "use strict";
+
+    const products = {
+      cookware: {
+        name: "Premium Cookware Set",
+        type: "Cookware",
+        price: 18500,
+        material: "Stainless Steel",
+        warranty: "2 Years",
+        bestFor: "Everyday Cooking",
+        feature: "Even Heat Distribution",
+        icon: "fa-kitchen-set"
+      },
+      knife: {
+        name: "Professional Knife Set",
+        type: "Kitchen Tools",
+        price: 7500,
+        material: "High-Carbon Stainless Steel",
+        warranty: "1 Year",
+        bestFor: "Precise Food Preparation",
+        feature: "Precision Cutting",
+        icon: "fa-utensils"
+      },
+      blender: {
+        name: "Pro Blender",
+        type: "Kitchen Appliances",
+        price: 12500,
+        material: "BPA-Free Plastic and Stainless Steel",
+        warranty: "1 Year",
+        bestFor: "Smoothies and Food Preparation",
+        feature: "Multiple Speed Settings",
+        icon: "fa-blender"
+      },
+      kettle: {
+        name: "Electric Kettle",
+        type: "Small Appliances",
+        price: 6500,
+        material: "Stainless Steel",
+        warranty: "1 Year",
+        bestFor: "Quick Boiling and Hot Drinks",
+        feature: "Automatic Shut-Off",
+        icon: "fa-mug-hot"
+      }
+    };
+
+    const productOne = document.getElementById("productOne");
+    const productTwo = document.getElementById("productTwo");
+
+    function formatPrice(price) {
+      return "Rs. " + price.toLocaleString("en-PK");
+    }
+
+    function updatePreview(product, suffix) {
+      document.getElementById("previewName" + suffix).textContent = product.name;
+      document.getElementById("previewCategory" + suffix).textContent = product.type;
+
+      const iconContainer = document.getElementById("previewIcon" + suffix);
+      iconContainer.innerHTML = "";
+
+      const icon = document.createElement("i");
+      icon.className = "fa-solid " + product.icon;
+      iconContainer.appendChild(icon);
+    }
+
+    function updateComparison() {
+      const first = products[productOne.value];
+      const second = products[productTwo.value];
+
+      if (!first || !second) return;
+
+      updatePreview(first, "One");
+      updatePreview(second, "Two");
+
+      document.getElementById("headingOne").textContent = first.name;
+      document.getElementById("headingTwo").textContent = second.name;
+
+      const fields = [
+        ["name", "name"],
+        ["type", "type"],
+        ["price", "price"],
+        ["material", "material"],
+        ["warranty", "warranty"],
+        ["bestFor", "best"],
+        ["feature", "feature"]
+      ];
+
+      fields.forEach(function (field) {
+        const property = field[0];
+        const output = field[1];
+
+        document.getElementById(output + "One").textContent =
+          property === "price" ? formatPrice(first.price) : first[property];
+
+        document.getElementById(output + "Two").textContent =
+          property === "price" ? formatPrice(second.price) : second[property];
+      });
+    }
+
+    function avoidDuplicateSelection(changedSelect) {
+      if (productOne.value === productTwo.value) {
+        const otherSelect = changedSelect === productOne ? productTwo : productOne;
+
+        const alternative = Array.from(otherSelect.options).find(function (option) {
+          return option.value !== changedSelect.value;
+        });
+
+        if (alternative) otherSelect.value = alternative.value;
+      }
+
+      updateComparison();
+    }
+
+    productOne.addEventListener("change", function () {
+      avoidDuplicateSelection(productOne);
+    });
+
+    productTwo.addEventListener("change", function () {
+      avoidDuplicateSelection(productTwo);
+    });
+
+    document.getElementById("compareButton").addEventListener("click", function () {
+      updateComparison();
+      document.getElementById("comparisonTable").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    document.getElementById("swapButton").addEventListener("click", function () {
+      const previousValue = productOne.value;
+      productOne.value = productTwo.value;
+      productTwo.value = previousValue;
+      updateComparison();
+    });
+
+    document.getElementById("resetButton").addEventListener("click", function () {
+      productOne.value = "cookware";
+      productTwo.value = "knife";
+      updateComparison();
+    });
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    updateComparison();
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+/* Shared Culina Luxe visual system across every page */
+:root{--cl-wine:#641e2b;--cl-wine-dark:#39121c;--cl-wine-light:#843b48;--cl-gold:#c6a46a;--cl-gold-light:#e7d3a5;--cl-ivory:#fbf7ef;--cl-cream:#f2eadc;--cl-text:#30252a;--cl-muted:#796c6b;--cl-border:#e8ddd0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--cl-ivory)!important;color:var(--cl-text);font-family:Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+/* Consistent main navigation, matching index.html */
+nav.custom-navbar,nav.about-navbar,.navbar.custom-navbar,.navbar.about-navbar{position:sticky!important;top:0;z-index:1050;background:linear-gradient(105deg,#39121c 0%,#641e2b 60%,#51202a 100%)!important;border-bottom:1px solid rgba(198,164,106,.65);box-shadow:0 8px 26px rgba(57,18,28,.13);padding:10px 0!important}
+.custom-navbar .navbar-brand,.about-navbar .navbar-brand,.about-brand{display:flex;align-items:center;gap:10px;color:#fff!important;font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:1.35rem;letter-spacing:.3px;text-transform:none;text-decoration:none}
+.custom-navbar .navbar-logo,.about-navbar .navbar-logo,.about-brand img{width:48px;height:48px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--cl-gold);border-radius:50%}
+.custom-navbar .nav-link,.about-navbar .nav-link{color:#fff!important;font-size:.88rem;font-weight:600;letter-spacing:.2px;text-transform:none;padding:.65rem .75rem!important;border-radius:8px;transition:background .2s ease,color .2s ease}
+.custom-navbar .nav-link:hover,.custom-navbar .nav-link.active,.about-navbar .nav-link:hover,.about-navbar .nav-link.active{color:var(--cl-gold-light)!important;background:rgba(255,255,255,.08)}
+.custom-navbar .navbar-toggler,.about-navbar .navbar-toggler{border:1px solid rgba(231,211,165,.7);padding:.4rem .6rem}
+.custom-navbar .navbar-toggler-icon,.about-navbar .navbar-toggler-icon{filter:brightness(0) invert(1)}
+.custom-navbar .nav-search{border-radius:999px;border:1px solid rgba(198,164,106,.6);background:#fffdf9;min-width:150px}
+.custom-navbar .btn-search{background:var(--cl-gold);border:1px solid var(--cl-gold);color:var(--cl-wine-dark);border-radius:50%;width:40px;height:40px}
+.custom-navbar .nav-icons a{color:#fff!important;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid rgba(231,211,165,.55);border-radius:50%;margin-left:7px}
+.custom-navbar .nav-icons a:hover{background:var(--cl-gold);color:var(--cl-wine-dark)!important}
+/* Cohesive warm ivory + burgundy + champagne palette for page-specific sections */
+.appliances-hero,.refrigeration-hero,.about-hero{background:linear-gradient(125deg,rgba(57,18,28,.97),rgba(100,30,43,.91))!important;color:#fff!important}
+.appliances-hero h1,.refrigeration-hero h1,.about-hero h1,.appliances-hero h2,.refrigeration-hero h2{color:#fff!important}
+.appliances-hero .eyebrow,.refrigeration-hero .eyebrow,.about-eyebrow{color:var(--cl-gold-light)!important;letter-spacing:2px}
+.btn-luxe,.about-hero a.btn,.about-hero .btn{background:var(--cl-gold)!important;color:var(--cl-wine-dark)!important;border:1px solid var(--cl-gold)!important;border-radius:999px;padding:12px 25px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
+.btn-luxe:hover,.about-hero a.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.card,.product-card,.appliance-card,.refrigeration-card{border-color:var(--cl-border)}
+@media(max-width:991.98px){.custom-navbar .navbar-collapse,.about-navbar .navbar-collapse{padding:12px 0}.custom-navbar .nav-form{margin:8px 0;max-width:100%}.custom-navbar .nav-icons{padding-top:8px}}
+
+
+/* Navbar cart and profile icon visibility */
+.custom-navbar .nav-icons a {
+    color: #c6a46a !important;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+    transition: all 0.25s ease;
+}
+
+/* Keep icons clearly visible */
+.custom-navbar .nav-icons a i {
+    color: #c6a46a !important;
+}
+
+/* Hover effect */
+.custom-navbar .nav-icons a:hover {
+    color: #ffffff !important;
+    background: #c6a46a;
+    transform: translateY(-2px);
+}
+
+.custom-navbar .nav-icons a:hover i {
+    color: #660019 !important;
+}

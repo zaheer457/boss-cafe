@@ -1,0 +1,45 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Appliances",
+        "products": [
+          {
+            "id": 101,
+            "name": "Blender",
+            "price": 29.99,
+            "description": "A powerful blender for smoothies and more.",
+            "image": "blender.jpg"
+          },
+          {
+            "id": 102,
+            "name": "Toaster",
+            "price": 19.99,
+            "description": "A 4-slice toaster for quick breakfasts.",
+            "image": "toaster.jpg"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Cookware",
+        "products": [
+          {
+            "id": 201,
+            "name": "Frying Pan",
+            "price": 25.99,
+            "description": "Non-stick frying pan for everyday use.",
+            "image": "frying_pan.jpg"
+          },
+          {
+            "id": 202,
+            "name": "Saucepan",
+            "price": 35.99,
+            "description": "Durable saucepan with a lid.",
+            "image": "saucepan.jpg"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Culina Luxe</title>
+
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="site-unify.css" rel="stylesheet">
+
+  
+<style>
+    :root {
+      --cl-wine: #641f32;
+      --cl-wine-dark: #421321;
+      --cl-gold: #c7a46a;
+      --cl-cream: #faf7f2;
+      --cl-ink: #30272a;
+      --cl-muted: #756b6e;
+      --cl-line: #e9e0d9;
+    }
+
+    body {
+      background: var(--cl-cream);
+      color: var(--cl-ink);
+    }
+
+    .custom-navbar {
+      position: relative;
+      z-index: 100;
+    }
+
+    /* CONTACT HERO */
+    .contact-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 72px 20px 66px;
+      color: #ffffff !important;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(199, 164, 106, 0.25),
+          transparent 28%
+        ),
+        linear-gradient(
+          125deg,
+          var(--cl-wine-dark),
+          var(--cl-wine)
+        ) !important;
+    }
+
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      right: -85px;
+      bottom: -150px;
+      pointer-events: none;
+    }
+
+    .contact-hero .hero-kicker {
+      display: block;
+      position: relative;
+      z-index: 2;
+      color: #f0d49b !important;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.7;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .contact-hero h1 {
+      display: block;
+      position: relative;
+      z-index: 2;
+      color: #ffffff !important;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 12px 0;
+      opacity: 1 !important;
+      visibility: visible !important;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-hero p {
+      display: block;
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+      margin: 0 auto;
+      color: #f8eef0 !important;
+      line-height: 1.8;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* MAIN CONTACT LAYOUT */
+    .contact-wrap {
+      max-width: 1180px;
+      margin: -28px auto 70px;
+      padding: 0 18px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .contact-panel {
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid var(--cl-line);
+      border-radius: 18px;
+      padding: clamp(22px, 3vw, 36px);
+      box-shadow: 0 18px 55px rgba(54, 28, 35, 0.08);
+    }
+
+    .section-eyebrow {
+      color: var(--cl-wine) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .section-heading {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      margin: 8px 0 12px;
+      color: var(--cl-wine-dark) !important;
+    }
+
+    .section-copy {
+      color: var(--cl-muted);
+      line-height: 1.75;
+    }
+
+    /* CONTACT DETAILS */
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 23px 0;
+    }
+
+    .detail-icon {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--cl-wine);
+      background: #f5edf0;
+    }
+
+    .contact-detail strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--cl-ink);
+    }
+
+    .contact-detail span,
+    .contact-detail a {
+      color: var(--cl-muted);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-detail a:hover {
+      color: var(--cl-wine);
+    }
+
+    /* BRANCH CARDS */
+    .branch-card {
+      height: 100%;
+      padding: 17px;
+      border: 1px solid var(--cl-line);
+      border-radius: 13px;
+      background: #fdfbf8;
+    }
+
+    .branch-card h3 {
+      font-size: 1rem;
+      color: var(--cl-wine);
+      font-weight: 750;
+      margin-bottom: 7px;
+    }
+
+    .branch-card p {
+      color: var(--cl-muted);
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* MAP */
+    .map-frame {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: 0;
+      border-radius: 13px;
+      margin-top: 22px;
+    }
+
+    /* CONTACT FORM */
+    .form-label {
+      display: block;
+      color: var(--cl-ink);
+      font-size: 0.9rem;
+      font-weight: 650;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid #e5dcd6;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fffdfa;
+      color: var(--cl-ink);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-control:focus {
+      border-color: var(--cl-gold);
+      box-shadow: 0 0 0 0.22rem rgba(199, 164, 106, 0.18);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--cl-wine);
+      color: #ffffff !important;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-contact:hover {
+      background: var(--cl-wine-dark);
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: var(--cl-muted);
+    }
+
+    .contact-alert {
+      display: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 0;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 767.98px) {
+      .contact-hero {
+        padding: 54px 18px 58px;
+      }
+
+      .contact-hero h1 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+      }
+
+      .contact-hero .hero-kicker {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+      }
+
+      .contact-wrap {
+        margin-top: -22px;
+        margin-bottom: 44px;
+        padding: 0 13px;
+      }
+
+      .contact-panel {
+        border-radius: 14px;
+      }
+
+      .map-frame {
+        height: 230px;
+      }
+    }
+
+    
+/* ===== FIX: HEADER / NAVBAR OVERLAP ===== */
+
+/* Keep header and navbar above the page content */
+header,
+.custom-navbar,
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Hero should start below the navbar, without covering it */
+.contact-hero {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  margin-top: 0 !important;
+}
+
+/* Keep decorative elements behind hero text */
+.contact-hero::after {
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Contact panels must not rise into the header */
+.contact-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: 30px !important;
+}
+
+/* Prevent unexpected overlap from columns and cards */
+.contact-wrap .row {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-panel,
+.branch-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== PREMIUM BURGUNDY FOOTER ===== */
+
+footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: 65px !important;
+  padding: 55px 0 0 !important;
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(199, 164, 106, 0.16),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #421321 0%, #641f32 60%, #4b1828 100%) !important;
+  color: #f8eef0 !important;
+  border-top: 3px solid #c7a46a;
+}
+
+/* Footer headings */
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer .footer-title {
+  color: #f0d49b !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Footer text */
+footer p,
+footer li,
+footer span,
+footer address {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.85;
+}
+
+/* Footer links */
+footer a {
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-decoration: none;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+footer a:hover {
+  color: #f0d49b !important;
+}
+
+/* Lists */
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer ul li {
+  margin-bottom: 9px;
+}
+
+/* Social icons, if present */
+footer .social-links,
+footer .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer .social-links a,
+footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(240, 212, 155, 0.4);
+  border-radius: 50%;
+  color: #f0d49b !important;
+  transition: all 0.25s ease;
+}
+
+footer .social-links a:hover,
+footer .footer-social a:hover {
+  background: #c7a46a;
+  color: #421321 !important;
+  transform: translateY(-3px);
+}
+
+/* Footer bottom / copyright strip */
+footer .footer-bottom,
+footer .copyright,
+footer .copyright-area {
+  margin-top: 35px;
+  padding: 18px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+}
+
+/* Avoid forcing every footer child into the same layout */
+footer img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile spacing */
+@media (max-width: 767.98px) {
+  .contact-wrap {
+    margin-top: 22px !important;
+  }
+
+  footer {
+    margin-top: 40px !important;
+    padding-top: 38px !important;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav aria-label="Main navigation"
+       class="navbar navbar-expand-lg custom-navbar">
+
+    <div class="container-fluid px-3 px-lg-4">
+
+      <a aria-label="Culina Luxe home"
+         class="navbar-brand" href="index.html">
+        <img alt="Culina Luxe logo"
+             class="navbar-logo" src="images/logo.png">
+        <span>Culina Luxe</span>
+      </a>
+
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i>Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="compare.html">Compare</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="review.html">Feedback</a>
+          </li>
+
+          <li class="nav-item">
+            <a aria-current="page"
+               class="nav-link active"
+               href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <form action="product.html"
+              class="nav-form"
+              method="get"
+              role="search">
+
+          <input aria-label="Search products"
+                 class="form-control nav-search"
+                 name="search"
+                 placeholder="Search kitchenware..."
+                 type="search">
+
+          <button aria-label="Search"
+                  class="btn btn-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <div class="nav-icons">
+          <a aria-label="Shopping cart"
+             href="checkout.html" title="Shopping cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+
+          <a aria-label="My account"
+             href="register.html" title="My account">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Hero -->
+  <header class="contact-hero">
+    <div class="hero-kicker">We'd love to hear from you</div>
+
+    <h1>Let's Start a Conversation</h1>
+
+    <p>
+      Questions about our kitchenware, an order, or choosing the
+      right product? Our team is here to help.
+    </p>
+  </header>
+
+  <!-- Main Contact Content -->
+  <main class="contact-wrap">
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Contact Information -->
+      <section class="col-lg-5"
+               aria-labelledby="contact-info-heading">
+
+        <div class="contact-panel">
+
+          <div class="section-eyebrow">Get in touch</div>
+
+          <h2 class="section-heading" id="contact-info-heading">
+            Contact Information
+          </h2>
+
+          <p class="section-copy">
+            Reach out using the details below or visit one of our
+            counters. We’ll do our best to get back to you.
+          </p>
+
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <strong>Our Location</strong>
+              <span>Plot 12, Gulshan Avenue, Karachi, Pakistan</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <strong>Call Us</strong>
+              <a href="tel:+923001234567">+92 300 1234567</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <strong>Email Us</strong>
+              <a href="mailto:contact@culinaluxe.com">
+                contact@culinaluxe.com
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <strong>Business Hours</strong>
+              <span>Monday – Friday: 8:00 AM – 5:00 PM</span>
+            </div>
+          </div>
+
+          <!-- Branch Cards -->
+          <div class="row g-3 mt-2">
+
+            <div class="col-sm-6">
+              <div class="branch-card">
+                <h3>
+                  <i class="fa-solid fa-store me-2"></i>
+                  Main Counter
+                </h3>
+                <p>
+                  <strong>Karachi</strong><br>
+                  Plot 12, Gulshan Avenue
+                </p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="branch-card">
+                <h3>
+                  <i class="fa-solid fa-shop me-2"></i>
+                  Branch Counter
+                </h3>
+                <p>
+                  <strong>Lahore</strong><br>
+                  Model Town Extension
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Google Map -->
+          <iframe
+            class="map-frame"
+            title="Map showing the Karachi area"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            src="https://www.google.com/maps?q=Karachi%20Pakistan&output=embed">
+          </iframe>
+
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="col-lg-7"
+               aria-labelledby="contact-form-heading">
+
+        <div class="contact-panel">
+
+          <div class="section-eyebrow">Send us a message</div>
+
+          <h2 class="section-heading" id="contact-form-heading">
+            How Can We Help?
+          </h2>
+
+          <p class="section-copy mb-4">
+            Fill out the form and share a few details. Please use
+            a valid email address so you can be contacted if needed.
+          </p>
+
+          <div class="alert alert-success contact-alert"
+               id="contact-success"
+               role="status"
+               aria-live="polite">
+            Thanks for reaching out! Your message has been checked
+            in this page, but it has not been emailed or saved to a server.
+          </div>
+
+          <form id="contact-form">
+
+            <div class="mb-3">
+              <label class="form-label" for="contact-name">
+                Full Name
+              </label>
+
+              <input
+                autocomplete="name"
+                class="form-control"
+                id="contact-name"
+                name="name"
+                maxlength="100"
+                placeholder="Enter your full name"
+                required
+                type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="contact-email">
+                Email Address
+              </label>
+
+              <input
+                autocomplete="email"
+                class="form-control"
+                id="contact-email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                type="email">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="contact-subject">
+                Subject
+              </label>
+
+              <input
+                class="form-control"
+                id="contact-subject"
+                name="subject"
+                maxlength="150"
+                placeholder="What is your message about?"
+                required
+                type="text">
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label" for="contact-message">
+                Your Message
+              </label>
+
+              <textarea
+                class="form-control"
+                id="contact-message"
+                name="message"
+                maxlength="3000"
+                placeholder="Write your message here..."
+                required
+                rows="6"></textarea>
+            </div>
+
+            <button class="btn btn-contact" type="submit">
+              Send Message
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <p class="form-note mt-3 mb-0">
+              <i class="fa-solid fa-shield-halved me-1"></i>
+              Your details are used only to respond to your enquiry.
+              This demo form does not transmit data.
+            </p>
+
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start">
+
+    <div class="container py-4">
+
+      <div class="row text-center text-md-start">
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-title">About Us</h5>
+          <p>
+            Welcome to Culina Luxe! We bring thoughtfully selected
+            kitchen essentials to make your kitchen more beautiful
+            and practical.
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Kitchenware</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+          <h5 class="footer-title">Follow Us</h5>
+          <p>Follow us for product updates and kitchen inspiration.</p>
+
+          <div class="social-icons d-flex justify-content-center justify-content-md-start">
+
+            <a href="https://www.facebook.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Facebook" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.instagram.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Instagram" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.pinterest.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Pinterest" title="Pinterest">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+
+            <a href="https://www.youtube.com"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="YouTube" title="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-center p-3 mt-2"
+         style="background-color: rgba(199,164,106,.13);">
+      © <span id="current-year">2026</span>
+      Culina Luxe. All rights reserved.
+    </div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    document.getElementById('current-year').textContent =
+      new Date().getFullYear();
+
+    document.getElementById('contact-form').addEventListener(
+      'submit',
+      function (event) {
+        event.preventDefault();
+
+        if (!this.checkValidity()) {
+          this.reportValidity();
+          return;
+        }
+
+        const success = document.getElementById('contact-success');
+
+        success.style.display = 'block';
+        success.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+
+        this.reset();
+      }
+    );
+  </script>
+
+</body>
+</html>
