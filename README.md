@@ -97,7 +97,6 @@ No build tools or package installation are required.
 **Zaheer Asgher**  
 Full Stack Web Developer
 
-- **Portfolio:** [zaheerportfolio.infinityfreeapp.com](https://zaheerportfolio.infinityfreeapp.com/)
 - **GitHub Project:** [Boss Cafe](https://github.com/zaheer457/boss-cafe)
 
 ---
